@@ -7,20 +7,27 @@
     <meta name="description" content="Portafolio de Daniel Santiago Osorio Garces, Desarrollador en formación.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="noise-overlay"></div>
+
     <header class="header">
         <nav class="nav">
             <a href="#inicio" class="logo">Daniel.</a>
-            <ul class="nav-links">
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#formacion">Formación</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <ul class="nav-links">
+                    <li><a href="#sobre-mi" class="i18n" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
+                    <li><a href="#experiencia" class="i18n" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+                    <li><a href="#habilidades" class="i18n" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+                    <li><a href="#formacion" class="i18n" data-es="Formación" data-en="Education">Formación</a></li>
+                    <li><a href="#contacto" class="i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+                <button id="lang-toggle" class="btn btn-secondary lang-btn">EN</button>
+            </div>
         </nav>
     </header>
 
@@ -28,14 +35,14 @@
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">Daniel Santiago Osorio Garces</h1>
-                <h2 class="hero-subtitle">Desarrollador en Formación</h2>
-                <p class="hero-description">
+                <h2 class="hero-subtitle i18n" data-es="Desarrollador en Formación" data-en="Developer in Training">Desarrollador en Formación</h2>
+                <p class="hero-description i18n" data-es="Técnico laboral en desarrollo de software con formación intensiva en desarrollo web y metodologías ágiles como Scrum. Busco oportunidades para aportar en el desarrollo frontend y continuar fortaleciendo mis habilidades técnicas y personales." data-en="Software development technician with intensive training in web development and agile methodologies like Scrum. I am looking for opportunities to contribute in frontend development and continue strengthening my technical and personal skills.">
                     Técnico laboral en desarrollo de software con formación intensiva en desarrollo web y metodologías ágiles como Scrum. 
                     Busco oportunidades para aportar en el desarrollo frontend y continuar fortaleciendo mis habilidades técnicas y personales.
                 </p>
                 <div class="hero-actions">
                     <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" class="btn btn-primary">GitHub</a>
-                    <a href="#experiencia" class="btn btn-secondary">Ver Proyectos</a>
+                    <a href="#experiencia" class="btn btn-secondary i18n" data-es="Ver Proyectos" data-en="View Projects">Ver Proyectos</a>
                 </div>
             </div>
             <div class="hero-image-container">
@@ -44,77 +51,79 @@
         </section>
 
         <section id="sobre-mi" class="section">
-            <h2 class="section-title">Sobre Mí</h2>
+            <h2 class="section-title i18n" data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
             <div class="about-content glass">
-                <p>
+                <p class="i18n" data-es="Soy Daniel Santiago Osorio Garces, desarrollador en formación especializado en automatización e integración de IA. Mi enfoque está en diseñar y construir soluciones tecnológicas que resuelvan problemas reales, desde arquitecturas backend hasta aplicaciones web y agentes conversacionales." data-en="I am Daniel Santiago Osorio Garces, a developer in training specializing in automation and AI integration. My focus is on designing and building technological solutions that solve real problems, from backend architectures to web applications and conversational agents.">
                     Soy Daniel Santiago Osorio Garces, desarrollador en formación especializado en automatización e integración de IA. Mi enfoque está en diseñar y construir soluciones tecnológicas que resuelvan problemas reales, desde arquitecturas backend hasta aplicaciones web y agentes conversacionales.
                 </p>
-                <p>
-                    Formado en Campuslands bajo metodologías Scrum/Agile, he participado en proyectos que abarcan la creación de plataformas web completas, automatización empresarial con n8n y <strong>bots de Telegram</strong> impulsados por IA. Como desarrollador, me enfoco en la optimización de procesos y la creación de productos digitales eficientes.
+                <p class="i18n" data-es="Formado en Campuslands bajo metodologías Scrum/Agile, he participado en proyectos que abarcan la creación de plataformas web completas, automatización empresarial con n8n y bots de Telegram impulsados por IA. Como desarrollador, me enfoco en la optimización de procesos y la creación de productos digitales eficientes." data-en="Trained at Campuslands under Scrum/Agile methodologies, I have participated in projects covering the creation of complete web platforms, business automation with n8n, and AI-powered Telegram bots. As a developer, I focus on process optimization and the creation of efficient digital products.">
+                    Formado en Campuslands bajo metodologías Scrum/Agile, he participado en proyectos que abarcan la creación de plataformas web completas, automatización empresarial con n8n y bots de Telegram impulsados por IA. Como desarrollador, me enfoco en la optimización de procesos y la creación de productos digitales eficientes.
                 </p>
-                <p>
+                <p class="i18n" data-es="Actualmente continúo fortaleciendo mis habilidades en desarrollo de software, automatización y arquitectura de sistemas, con un interés creciente en las tecnologías de inteligencia artificial aplicadas a entornos reales." data-en="I am currently continuing to strengthen my skills in software development, automation, and system architecture, with a growing interest in artificial intelligence technologies applied to real environments.">
                     Actualmente continúo fortaleciendo mis habilidades en desarrollo de software, automatización y arquitectura de sistemas, con un interés creciente en las tecnologías de inteligencia artificial aplicadas a entornos reales.
                 </p>
             </div>
         </section>
 
         <section id="experiencia" class="section">
-            <h2 class="section-title">Experiencia y Proyectos</h2>
+            <h2 class="section-title i18n" data-es="Experiencia y Proyectos" data-en="Experience and Projects">Experiencia y Proyectos</h2>
             <div class="grid cards">
                 <div class="card">
-                    <h3>Agencia de Viajes - Campuslands</h3>
-                    <p>Agencia de viajes en Python con múltiples funcionalidades: gestión de divisas, alquileres, reservas, tarifas y préstamos.</p>
+                    <h3 class="i18n" data-es="Agencia de Viajes - Campuslands" data-en="Travel Agency - Campuslands">Agencia de Viajes - Campuslands</h3>
+                    <p class="i18n" data-es="Agencia de viajes en Python con múltiples funcionalidades: gestión de divisas, alquileres, reservas, tarifas y préstamos." data-en="Python travel agency with multiple features: currency management, rentals, reservations, fares, and loans.">Agencia de viajes en Python con múltiples funcionalidades: gestión de divisas, alquileres, reservas, tarifas y préstamos.</p>
                 </div>
                 <div class="card">
-                    <h3>Landing Pages - Campuslands</h3>
-                    <p>Diseño y maquetación de páginas web con diseño completamente responsivo, optimizando la experiencia del usuario.</p>
+                    <h3 class="i18n" data-es="Landing Pages - Campuslands" data-en="Landing Pages - Campuslands">Landing Pages - Campuslands</h3>
+                    <p class="i18n" data-es="Diseño y maquetación de páginas web con diseño completamente responsivo, optimizando la experiencia del usuario." data-en="Design and layout of completely responsive web pages, optimizing the user experience.">Diseño y maquetación de páginas web con diseño completamente responsivo, optimizando la experiencia del usuario.</p>
                 </div>
                 <div class="card">
-                    <h3>Caja de Herramientas - Campuslands</h3>
-                    <p>Aplicación en Python que integra gestión de precios, préstamos, utilidades y sistema completo de registro y administración de usuarios.</p>
+                    <h3 class="i18n" data-es="Simulación de la Fórmula 1" data-en="Formula 1 Simulation">Simulación de la Fórmula 1</h3>
+                    <p class="i18n" data-es="Aplicación de simulación de carreras que incluye climas dinámicos, simulaciones en tiempo real y la capacidad de agregar pilotos." data-en="Racing simulation application that includes dynamic weather, real-time simulations, and the ability to add drivers.">Aplicación de simulación de carreras que incluye climas dinámicos, simulaciones en tiempo real y la capacidad de agregar pilotos.</p>
                 </div>
                 <div class="card">
-                    <h3>DeliveryBot - Proyecto Independiente</h3>
-                    <p>Bot interactivo de Telegram utilizando n8n y JavaScript para la gestión automatizada de pedidos. Integración con Google Sheets para inventarios y carritos de compra, con IA para procesamiento de lenguaje natural.</p>
+                    <h3 class="i18n" data-es="DeliveryBot - Proyecto Independiente" data-en="DeliveryBot - Independent Project">DeliveryBot - Proyecto Independiente</h3>
+                    <p class="i18n" data-es="Bot interactivo de Telegram utilizando n8n y JavaScript para la gestión automatizada de pedidos. Integración con Google Sheets para inventarios y carritos de compra, con IA para procesamiento de lenguaje natural." data-en="Interactive Telegram bot using n8n and JavaScript for automated order management. Integration with Google Sheets for inventory and shopping carts, with AI for natural language processing.">Bot interactivo de Telegram utilizando n8n y JavaScript para la gestión automatizada de pedidos. Integración con Google Sheets para inventarios y carritos de compra, con IA para procesamiento de lenguaje natural.</p>
                 </div>
             </div>
         </section>
 
         <section id="habilidades" class="section">
-            <h2 class="section-title">Habilidades y Competencias</h2>
+            <h2 class="section-title i18n" data-es="Habilidades y Competencias" data-en="Skills and Competencies">Habilidades y Competencias</h2>
             <div class="skills-container">
                 <div class="skills-group glass">
-                    <h3>Técnicas</h3>
+                    <h3 class="i18n" data-es="Técnicas" data-en="Technical">Técnicas</h3>
                     <ul class="skills-list">
-                        <li>Dominio en páginas web</li>
+                        <li class="i18n" data-es="Dominio en páginas web" data-en="Web Development">Dominio en páginas web</li>
                         <li>Python</li>
-                        <li>Programación Básica</li>
-                        <li>Manejo de la IA</li>
+                        <li>Java</li>
+                        <li class="i18n" data-es="Programación Básica" data-en="Basic Programming">Programación Básica</li>
+                        <li class="i18n" data-es="Manejo de la IA" data-en="AI Management">Manejo de la IA</li>
                         <li>n8n</li>
                         <li>SQL</li>
+                        <li>PostgreSQL</li>
                     </ul>
                 </div>
                 <div class="skills-group glass">
-                    <h3>Blandas</h3>
+                    <h3 class="i18n" data-es="Blandas" data-en="Soft">Blandas</h3>
                     <ul class="skills-list">
-                        <li>Liderazgo</li>
-                        <li>Creatividad</li>
-                        <li>Disciplina</li>
-                        <li>Escucha activa</li>
-                        <li>Proactividad</li>
-                        <li>Comunicación</li>
+                        <li class="i18n" data-es="Liderazgo" data-en="Leadership">Liderazgo</li>
+                        <li class="i18n" data-es="Creatividad" data-en="Creativity">Creatividad</li>
+                        <li class="i18n" data-es="Disciplina" data-en="Discipline">Disciplina</li>
+                        <li class="i18n" data-es="Escucha activa" data-en="Active Listening">Escucha activa</li>
+                        <li class="i18n" data-es="Proactividad" data-en="Proactivity">Proactividad</li>
+                        <li class="i18n" data-es="Comunicación" data-en="Communication">Comunicación</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="formacion" class="section">
-            <h2 class="section-title">Formación</h2>
+            <h2 class="section-title i18n" data-es="Formación" data-en="Education">Formación</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Técnico Laboral en Desarrollo de Software</h3>
+                        <h3 class="i18n" data-es="Técnico Laboral en Desarrollo de Software" data-en="Software Development Technician">Técnico Laboral en Desarrollo de Software</h3>
                         <h4>Campuslands</h4>
                         <p class="timeline-date">2026</p>
                     </div>
@@ -122,8 +131,8 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Bachiller</h3>
-                        <h4>Colegio Fundación Colegio UIS</h4>
+                        <h3 class="i18n" data-es="Bachiller" data-en="High School Diploma">Bachiller</h3>
+                        <h4 class="i18n" data-es="Colegio Fundación Colegio UIS" data-en="Fundación Colegio UIS School">Colegio Fundación Colegio UIS</h4>
                         <p class="timeline-date">2025</p>
                     </div>
                 </div>
@@ -131,7 +140,7 @@
         </section>
 
         <section id="contacto" class="section">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title i18n" data-es="Contacto" data-en="Contact">Contacto</h2>
             <div class="contact-container glass">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -139,12 +148,12 @@
                         <a href="mailto:santiagoosorio0708e@gmail.com" class="contact-link">santiagoosorio0708e@gmail.com</a>
                     </div>
                     <div class="contact-item">
-                        <h3>Teléfono</h3>
+                        <h3 class="i18n" data-es="Teléfono" data-en="Phone">Teléfono</h3>
                         <a href="tel:+573014609110" class="contact-link">+57 301 460 9110</a>
                     </div>
                 </div>
                 <div class="contact-actions">
-                    <a href="mailto:santiagoosorio0708e@gmail.com" class="btn btn-primary">Enviar Correo</a>
+                    <a href="mailto:santiagoosorio0708e@gmail.com" class="btn btn-primary i18n" data-es="Enviar Correo" data-en="Send Email">Enviar Correo</a>
                     <a href="https://wa.me/573014609110" target="_blank" class="btn btn-secondary">WhatsApp</a>
                 </div>
             </div>
@@ -152,8 +161,8 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados.</p>
-        <div class="languages">Idiomas: Español (Nativo), Inglés (B1.1)</div>
+        <p class="i18n" data-es="&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados." data-en="&copy; 2026 Daniel Santiago Osorio Garces. All rights reserved.">&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados.</p>
+        <div class="languages i18n" data-es="Idiomas: Español (Nativo), Inglés (B1.1)" data-en="Languages: Spanish (Native), English (B1.1)">Idiomas: Español (Nativo), Inglés (B1.1)</div>
     </footer>
     <script src="script.js"></script>
 </body>
