@@ -8,7 +8,7 @@
     
     <!-- Open Graph / Meta -->
     <meta property="og:title" content="Daniel Osorio | Software Developer Portfolio">
-    <meta property="og:description" content="Proyectos interactivos con simulaciones en vivo estilo GIF: Banco ACME, DeliveryBot, Chatbot Contaduría, Fórmula 1 Java, E-Commerce y Agencia de Viajes.">
+    <meta property="og:description" content="Proyectos interactivos con simulaciones en vivo: Banco ACME, DeliveryBot, Chatbot Contaduría, Fórmula 1 Java, E-Commerce y Agencia de Viajes.">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#07090e">
 
@@ -20,11 +20,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Interactive Background Canvas & Ambient Glows -->
+    <!-- Interactive Ambient Canvas & Background Lighting -->
     <canvas id="ambient-canvas"></canvas>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
     <div class="noise-overlay"></div>
 
     <!-- Notification Toast System -->
@@ -44,25 +43,22 @@
                 <ul class="nav-links">
                     <li><a href="#inicio" class="nav-link i18n" data-es="Inicio" data-en="Home">Inicio</a></li>
                     <li><a href="#sobre-mi" class="nav-link i18n" data-es="Sobre Mí" data-en="About">Sobre Mí</a></li>
-                    <li><a href="#demo-studio" class="nav-link nav-highlight i18n" data-es="⚡ Demos en Vivo" data-en="⚡ Live Demos">⚡ Demos en Vivo</a></li>
+                    <li><a href="#demo-studio" class="nav-link nav-highlight i18n" data-es="Demos en Vivo" data-en="Live Demos">Demos en Vivo</a></li>
                     <li><a href="#proyectos" class="nav-link i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
                     <li><a href="#habilidades" class="nav-link i18n" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
-                    <li><a href="#terminal" class="nav-link i18n" data-es="Terminal >_" data-en="Terminal >_">Terminal >_</a></li>
+                    <li><a href="#terminal" class="nav-link i18n" data-es="Terminal" data-en="Terminal">Terminal</a></li>
                     <li><a href="#formacion" class="nav-link i18n" data-es="Formación" data-en="Education">Formación</a></li>
                     <li><a href="#contacto" class="nav-link i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
             </div>
 
             <div class="nav-actions">
-                <button id="audio-toggle" class="btn-icon" title="Efectos de sonido (Activado/Desactivado)" aria-label="Toggle Audio">
-                    <span id="audio-icon">🔊</span>
-                </button>
                 <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">
-                    <span class="lang-flag">🌐</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <span id="lang-text">EN</span>
                 </button>
                 <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="btn-icon btn-github" title="GitHub Perfil" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
                 <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menú móvil">
                     <span class="bar"></span>
@@ -81,7 +77,7 @@
                     <div class="status-badge">
                         <span class="status-pulse"></span>
                         <span class="status-text i18n" data-es="Disponible para Proyectos y Desarrollo" data-en="Open to Projects & Engineering Roles">Disponible para Proyectos y Desarrollo</span>
-                        <span class="status-flag">🇨🇴 Bucaramanga, CO</span>
+                        <span class="status-flag">Bucaramanga, CO</span>
                     </div>
 
                     <h1 class="hero-title">
@@ -103,15 +99,12 @@
 
                     <div class="hero-actions">
                         <a href="#demo-studio" class="btn btn-primary glow-btn">
-                            <span class="btn-icon-inner">⚡</span>
                             <span class="i18n" data-es="Explorar Demos Interactivas" data-en="Explore Live Demos">Explorar Demos Interactivas</span>
                         </a>
                         <a href="#proyectos" class="btn btn-secondary">
-                            <span class="btn-icon-inner">📂</span>
                             <span class="i18n" data-es="Ver Proyectos Pinned" data-en="View Pinned Repos">Ver Proyectos Pinned</span>
                         </a>
                         <a href="#contacto" class="btn btn-outline">
-                            <span class="btn-icon-inner">💬</span>
                             <span class="i18n" data-es="Contactar" data-en="Get in Touch">Contactar</span>
                         </a>
                     </div>
@@ -152,19 +145,15 @@
 
                         <!-- Floating Tech Tags around Avatar -->
                         <div class="tech-badge badge-top-right">
-                            <span class="badge-icon">☕</span>
                             <span class="badge-text">Java & Spring</span>
                         </div>
                         <div class="tech-badge badge-bottom-left">
-                            <span class="badge-icon">🐳</span>
                             <span class="badge-text">Dockerized</span>
                         </div>
                         <div class="tech-badge badge-bottom-right">
-                            <span class="badge-icon">🤖</span>
-                            <span class="badge-text">n8n & Gemini IA</span>
+                            <span class="badge-text">n8n & Gemini AI</span>
                         </div>
                         <div class="tech-badge badge-top-left">
-                            <span class="badge-icon">🚀</span>
                             <span class="badge-text">Node.js ES6+</span>
                         </div>
                     </div>
@@ -215,7 +204,7 @@
 
                 <div class="about-pillars">
                     <div class="pillar-card glass">
-                        <div class="pillar-icon">🏛️</div>
+                        <div class="pillar-num">01</div>
                         <div class="pillar-content">
                             <h3 class="i18n" data-es="Backend & APIs REST" data-en="Backend & RESTful APIs">Backend & APIs REST</h3>
                             <p class="i18n" data-es="Servicios desacoplados con Java, Spring Boot y Node.js orientados a consistencia, validaciones de negocio y rendimiento." data-en="Decoupled services with Java, Spring Boot, and Node.js built for reliability, business validation, and throughput.">Servicios desacoplados con Java, Spring Boot y Node.js orientados a consistencia, validaciones de negocio y rendimiento.</p>
@@ -223,7 +212,7 @@
                     </div>
 
                     <div class="pillar-card glass">
-                        <div class="pillar-icon">🐳</div>
+                        <div class="pillar-num">02</div>
                         <div class="pillar-content">
                             <h3 class="i18n" data-es="Docker & Entornos Cloud" data-en="Docker & Cloud Environments">Docker & Entornos Cloud</h3>
                             <p class="i18n" data-es="Contenerización de aplicaciones, aislamiento de bases de datos PostgreSQL/MySQL y despliegues productivos en Render." data-en="Application containerization, PostgreSQL/MySQL database isolation, and production deployments on Render.">Contenerización de aplicaciones, aislamiento de bases de datos PostgreSQL/MySQL y despliegues productivos en Render.</p>
@@ -231,7 +220,7 @@
                     </div>
 
                     <div class="pillar-card glass">
-                        <div class="pillar-icon">🤖</div>
+                        <div class="pillar-num">03</div>
                         <div class="pillar-content">
                             <h3 class="i18n" data-es="Automatización & IA" data-en="Automation & AI">Automatización & IA</h3>
                             <p class="i18n" data-es="Orquestación en n8n, agentes inteligentes con Google Gemini y bots conversacionales en WhatsApp (Baileys) y Telegram." data-en="n8n workflow orchestration, intelligent agents with Google Gemini, and conversational bots on WhatsApp (Baileys) & Telegram.">Orquestación en n8n, agentes inteligentes con Google Gemini y bots conversacionales en WhatsApp (Baileys) y Telegram.</p>
@@ -239,7 +228,7 @@
                     </div>
 
                     <div class="pillar-card glass">
-                        <div class="pillar-icon">🧪</div>
+                        <div class="pillar-num">04</div>
                         <div class="pillar-content">
                             <h3 class="i18n" data-es="Testing & Calidad de Código" data-en="Testing & Code Quality">Testing & Calidad de Código</h3>
                             <p class="i18n" data-es="Validación rigurosa de contratos de datos con Postman, pruebas unitarias y flujos estructurados bajo GitFlow." data-en="Rigorous API contract validation with Postman, unit test suites, and structured GitFlow branches.">Validación rigurosa de contratos de datos con Postman, pruebas unitarias y flujos estructurados bajo GitFlow.</p>
@@ -250,16 +239,16 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- FLAGSHIP FEATURE: INTERACTIVE DEMO STUDIO (ESTILO GIF & INTERACTIVO)    -->
+        <!-- FLAGSHIP FEATURE: INTERACTIVE DEMO STUDIO (OPTIMIZADO & FLUIDO)           -->
         <!-- ========================================================================= -->
         <section id="demo-studio" class="section demo-studio-section">
             <div class="section-header">
-                <span class="section-tag studio-tag i18n" data-es="⚡ ESTUDIO INTERACTIVO" data-en="⚡ INTERACTIVE LAB">⚡ ESTUDIO INTERACTIVO</span>
+                <span class="section-tag studio-tag i18n" data-es="ESTUDIO INTERACTIVO" data-en="INTERACTIVE LAB">ESTUDIO INTERACTIVO</span>
                 <h2 class="section-title i18n" data-es="Simulador de Proyectos en Vivo" data-en="Live Project Simulator">Simulador de Proyectos en Vivo</h2>
                 <p class="section-subtitle i18n" 
-                   data-es="Demostraciones visuales interactivas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-Demo (Estilo GIF animado)</strong> para verlos en acción o cambia al <strong>Modo Interactivo</strong> para probarlos tú mismo." 
-                   data-en="Visual interactive demonstrations of the 6 pinned GitHub projects. Switch to <strong>Auto-Demo Mode (Animated GIF style)</strong> to watch automated loops or switch to <strong>Interactive Mode</strong> to test them yourself.">
-                    Demostraciones visuales interactivas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-Demo (Estilo GIF animado)</strong> para verlos en acción o cambia al <strong>Modo Interactivo</strong> para probarlos tú mismo.
+                   data-es="Demostraciones visuales interactivas y fluidas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-GIF</strong> para ver bucles automatizados o cambia al <strong>Modo Interactivo</strong> para probarlos directamente." 
+                   data-en="Smooth interactive demonstrations of the 6 pinned GitHub projects. Switch to <strong>Auto-GIF Mode</strong> to watch automated loops or switch to <strong>Interactive Mode</strong> to test them directly.">
+                    Demostraciones visuales interactivas y fluidas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-GIF</strong> para ver bucles automatizados o cambia al <strong>Modo Interactivo</strong> para probarlos directamente.
                 </p>
             </div>
 
@@ -276,39 +265,39 @@
                         </div>
                         <div class="studio-badge-status">
                             <span class="status-pulse-small"></span>
-                            <span class="studio-status-text" id="studio-status-text">SIMULADOR ACTIVO</span>
+                            <span class="studio-status-text" id="studio-status-text">SIMULADOR EN VIVO</span>
                         </div>
                     </div>
 
                     <!-- Project Tabs Bar -->
                     <div class="studio-tabs-scroller" role="tablist">
                         <button class="studio-tab active" data-project="banco" role="tab" aria-selected="true">
-                            <span class="tab-emoji">🏦</span>
+                            <span class="tab-tag">[01]</span>
                             <span class="tab-name">Banco ACME</span>
                             <span class="tab-badge">SPA</span>
                         </button>
                         <button class="studio-tab" data-project="delivery" role="tab" aria-selected="false">
-                            <span class="tab-emoji">🤖</span>
+                            <span class="tab-tag">[02]</span>
                             <span class="tab-name">DeliveryBot</span>
                             <span class="tab-badge">n8n</span>
                         </button>
                         <button class="studio-tab" data-project="chatbot" role="tab" aria-selected="false">
-                            <span class="tab-emoji">💬</span>
+                            <span class="tab-tag">[03]</span>
                             <span class="tab-name">Chatbot Contaduría</span>
-                            <span class="tab-badge">Gemini IA</span>
+                            <span class="tab-badge">Gemini AI</span>
                         </button>
                         <button class="studio-tab" data-project="f1" role="tab" aria-selected="false">
-                            <span class="tab-emoji">🏎️</span>
+                            <span class="tab-tag">[04]</span>
                             <span class="tab-name">Fórmula 1</span>
                             <span class="tab-badge">Java 21</span>
                         </button>
                         <button class="studio-tab" data-project="ecommerce" role="tab" aria-selected="false">
-                            <span class="tab-emoji">🛍️</span>
+                            <span class="tab-tag">[05]</span>
                             <span class="tab-name">E-Commerce</span>
                             <span class="tab-badge">Web</span>
                         </button>
                         <button class="studio-tab" data-project="viajes" role="tab" aria-selected="false">
-                            <span class="tab-emoji">✈️</span>
+                            <span class="tab-tag">[06]</span>
                             <span class="tab-name">Agencia Viajes</span>
                             <span class="tab-badge">Python</span>
                         </button>
@@ -317,16 +306,16 @@
                     <!-- Mode Switch & Play/Pause -->
                     <div class="studio-mode-controls">
                         <div class="mode-switch-wrapper">
-                            <button id="mode-auto-btn" class="mode-btn active" title="Reproducción continua estilo GIF animado">
-                                <span class="mode-icon">▶️</span>
+                            <button id="mode-auto-btn" class="mode-btn active" title="Bucle automático estilo GIF">
                                 <span class="mode-label i18n" data-es="Auto-GIF" data-en="Auto-GIF">Auto-GIF</span>
                             </button>
                             <button id="mode-interactive-btn" class="mode-btn" title="Interactúa manualmente con botones y formularios">
-                                <span class="mode-icon">🖐️</span>
                                 <span class="mode-label i18n" data-es="Interactivo" data-en="Interactive">Interactivo</span>
                             </button>
                         </div>
-                        <button id="studio-play-toggle" class="btn-icon-subtle" title="Pausar / Reanudar Auto-Demo">⏸️</button>
+                        <button id="studio-play-toggle" class="btn-icon-subtle" title="Pausar o Reanudar Auto-Demo">
+                            <span id="play-pause-icon">PAUSA</span>
+                        </button>
                     </div>
                 </div>
 
@@ -371,7 +360,7 @@
                                             <span class="vcard-small">TITULAR</span>
                                             <span class="vcard-name">DANIEL S. OSORIO</span>
                                         </div>
-                                        <div class="vcard-number">•••• 4892</div>
+                                        <div class="vcard-number">4892</div>
                                     </div>
                                 </div>
 
@@ -391,8 +380,8 @@
                             <div class="banco-actions-column">
                                 <div class="banco-transfer-box">
                                     <div class="box-title-row">
-                                        <h4>⚡ <span class="i18n" data-es="Transferencia Rápida en Línea" data-en="Fast Online Transfer">Transferencia Rápida en Línea</span></h4>
-                                        <span class="status-pill text-green">● Mock Abierto</span>
+                                        <h4 class="i18n" data-es="Transferencia Rápida en Línea" data-en="Fast Online Transfer">Transferencia Rápida en Línea</h4>
+                                        <span class="status-pill text-green">Modo Prueba Abierto</span>
                                     </div>
 
                                     <div class="banco-form-row">
@@ -425,7 +414,7 @@
                                     <h5 class="i18n" data-es="Historial de Movimientos Recientes" data-en="Recent Transactions Ledger">Historial de Movimientos Recientes</h5>
                                     <div class="ledger-list" id="banco-ledger-list">
                                         <div class="ledger-item positive">
-                                            <span class="ledger-icon">📥</span>
+                                            <span class="ledger-badge">[IN]</span>
                                             <div class="ledger-details">
                                                 <span class="ledger-name">Pago Nómina Campuslands</span>
                                                 <span class="ledger-date">Hoy, 10:45 AM</span>
@@ -433,7 +422,7 @@
                                             <span class="ledger-amt">+$2,500,000 COP</span>
                                         </div>
                                         <div class="ledger-item negative">
-                                            <span class="ledger-icon">📤</span>
+                                            <span class="ledger-badge">[OUT]</span>
                                             <div class="ledger-details">
                                                 <span class="ledger-name">Render Web Service</span>
                                                 <span class="ledger-date">Ayer, 04:20 PM</span>
@@ -466,20 +455,20 @@
                         <div class="telegram-demo-container">
                             <div class="telegram-phone-frame">
                                 <div class="tg-header">
-                                    <div class="tg-avatar">☕</div>
+                                    <div class="tg-avatar">DB</div>
                                     <div class="tg-chat-info">
                                         <div class="tg-chat-title">DeliveryBot Cafetería</div>
                                         <div class="tg-chat-status">bot • conectado a n8n</div>
                                     </div>
                                     <div class="tg-actions">
-                                        <button id="tg-btn-reset" class="tg-small-btn" title="Reiniciar chat">🔄</button>
+                                        <button id="tg-btn-reset" class="tg-small-btn" title="Reiniciar chat">Reiniciar</button>
                                     </div>
                                 </div>
 
                                 <div class="tg-messages-area" id="tg-messages-area">
                                     <div class="tg-msg bot">
                                         <div class="tg-bubble">
-                                            ¡Hola Daniel! ☕ Bienvenido a la cafetería universitaria. Te ayudamos a ordenar sin filas.
+                                            ¡Hola Daniel! Bienvenido a la cafetería universitaria. Te ayudamos a ordenar sin filas.
                                         </div>
                                         <span class="tg-time">10:14</span>
                                     </div>
@@ -487,9 +476,9 @@
                                         <div class="tg-bubble">
                                             Por favor selecciona una categoría del menú:
                                             <div class="tg-keyboard" id="tg-cat-keyboard">
-                                                <button class="tg-btn" data-tg-action="cat_bebidas">☕ Bebidas</button>
-                                                <button class="tg-btn" data-tg-action="cat_snacks">🥪 Snacks</button>
-                                                <button class="tg-btn" data-tg-action="cat_almuerzos">🍱 Almuerzos</button>
+                                                <button class="tg-btn" data-tg-action="cat_bebidas">Bebidas</button>
+                                                <button class="tg-btn" data-tg-action="cat_snacks">Snacks</button>
+                                                <button class="tg-btn" data-tg-action="cat_almuerzos">Almuerzos</button>
                                             </div>
                                         </div>
                                     </div>
@@ -503,13 +492,13 @@
                                 </div>
 
                                 <div class="tg-input-bar">
-                                    <input type="text" id="tg-user-input" placeholder="Escribe un comando (/menu, /carrito, /pedir)..." class="tg-input">
-                                    <button id="tg-send-btn" class="tg-send">➤</button>
+                                    <input type="text" id="tg-user-input" placeholder="Comandos: /menu, /carrito, /pedir..." class="tg-input">
+                                    <button id="tg-send-btn" class="tg-send">Enviar</button>
                                 </div>
                             </div>
 
                             <div class="tg-info-panel">
-                                <h4>📊 Sincronización en Tiempo Real</h4>
+                                <h4>Sincronización en Tiempo Real</h4>
                                 <p>El bot consulta las tablas de <code>Google Sheets (DeliveryBot_DB)</code> para verificar el inventario disponible y asegurar que no se vendan productos agotados.</p>
                                 
                                 <div class="sheets-mock">
@@ -527,8 +516,7 @@
                                 </div>
 
                                 <div class="n8n-flow-pill">
-                                    <span class="n8n-icon">⚡</span>
-                                    <span>Flujo n8n: <code>Schedule Trigger ➔ Polling Telegram ➔ Switch ➔ Sheets ➔ WhatsApp / Push</code></span>
+                                    <span>Flujo n8n: <code>Schedule Trigger -> Polling Telegram -> Switch -> Sheets -> WhatsApp / Push</code></span>
                                 </div>
                             </div>
                         </div>
@@ -555,7 +543,7 @@
                             <!-- Left: WhatsApp Screen -->
                             <div class="wa-phone-frame">
                                 <div class="wa-header">
-                                    <div class="wa-avatar">⚖️</div>
+                                    <div class="wa-avatar">IA</div>
                                     <div class="wa-contact-info">
                                         <span class="wa-name">Asesoría Tributaria IA (DIAN)</span>
                                         <span class="wa-status">En línea • Google Gemini 2.0</span>
@@ -574,45 +562,45 @@
 
                                 <!-- Quick Questions Chips -->
                                 <div class="wa-quick-prompts">
-                                    <button class="wa-chip" data-query="renta">📅 ¿Cuándo declaro renta?</button>
-                                    <button class="wa-chip" data-query="retencion">💰 Calcular retención</button>
-                                    <button class="wa-chip" data-query="asesor">👩‍💼 Hablar con la Contadora</button>
+                                    <button class="wa-chip" data-query="renta">Vencimientos Renta</button>
+                                    <button class="wa-chip" data-query="retencion">Calcular Retención</button>
+                                    <button class="wa-chip" data-query="asesor">Asesor Humano</button>
                                 </div>
 
                                 <div class="wa-input-row">
                                     <input type="text" id="wa-text-input" placeholder="Escribe tu consulta tributaria..." class="wa-input">
-                                    <button id="wa-send-btn" class="wa-send-btn">➤</button>
+                                    <button id="wa-send-btn" class="wa-send-btn">Enviar</button>
                                 </div>
                             </div>
 
                             <!-- Right: Architecture & Features Specs -->
                             <div class="wa-specs-panel">
-                                <h4>🧠 Características de Inteligencia Artificial</h4>
+                                <h4>Características de Inteligencia Artificial</h4>
                                 <ul class="spec-list">
                                     <li><strong>Google Gemini AI:</strong> Respuestas fundamentadas en normativa DIAN vigente y estatuto tributario.</li>
-                                    <li><strong>Motor Baileys:</strong> Conexión nativa por WebSocket sin Chromium pesado (consumo reducido de >550MB a solo ~45MB de RAM).</li>
+                                    <li><strong>Motor Baileys:</strong> Conexión nativa por WebSocket sin Chromium pesado (consumo reducido de &gt;550MB a solo ~45MB de RAM).</li>
                                     <li><strong>Control de Horario Laboral:</strong> Configurado con zona horaria <code>America/Bogota</code> para atención diurna y cooldown nocturno.</li>
                                     <li><strong>Detección de Handoff:</strong> Silencia la IA automáticamente cuando el usuario solicita atención de un contador humano. Comando <code>/reactivar</code> disponible.</li>
                                 </ul>
 
                                 <div class="docker-pill-badge">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.954 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.145a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m5.884 2.714h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H8.1a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.145a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.929 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.216a.186.186 0 00-.186.186v1.888c0 .102.084.185.186.185"/></svg>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.954 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.145a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m5.884 2.714h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H8.1a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.185H5.145a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.185m-2.929 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.216a.186.186 0 00-.186.186v1.888c0 .102.084.185.186.185"/></svg>
                                     <span>Contenedor Docker Alpine listo para Render</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ============================================== -->
-                    <!-- DEMO 4: FORMULA 1 (Simulación Java Swing Concurrente) -->
-                    <!-- ============================================== -->
+                    <!-- ======================================================= -->
+                    <!-- DEMO 4: FORMULA 1 (Rotación de Pistas Cada 4 Segundos) -->
+                    <!-- ======================================================= -->
                     <div class="demo-screen" id="demo-screen-f1">
                         <div class="demo-meta-bar">
                             <div class="demo-meta-left">
                                 <span class="meta-title">Formula 1 Race Simulator • Java 21 Swing & Concurrencia</span>
                                 <span class="meta-tag">Hilos (CyclicBarrier)</span>
                                 <span class="meta-tag">20 Pilotos Concurrentes</span>
-                                <span class="meta-tag">Clima Dinámico</span>
+                                <span class="meta-tag" id="f1-circuit-badge">Pista Activa: Monza</span>
                             </div>
                             <a href="https://github.com/santiagoosorio0708e-wq/Formula1-java" target="_blank" class="meta-link">
                                 <span>Ver Código en GitHub</span>
@@ -621,65 +609,78 @@
                         </div>
 
                         <div class="f1-dashboard">
-                            <!-- Circuit & Telemetry Bar -->
+                            <!-- Telemetry Topbar -->
                             <div class="f1-top-telemetry">
                                 <div class="f1-hud-item">
-                                    <span class="f1-hud-lbl">VELOCIDAD</span>
-                                    <span class="f1-hud-val" id="f1-speed">324 km/h</span>
+                                    <span class="f1-hud-lbl">CIRCUITO ACTIVO (ROTA CADA 4S)</span>
+                                    <span class="f1-hud-val text-cyan" id="f1-circuit-name">Monza (Italia) - 5.793 km</span>
+                                </div>
+                                <div class="f1-hud-item">
+                                    <span class="f1-hud-lbl">VELOCIDAD TELEMETRÍA</span>
+                                    <span class="f1-hud-val" id="f1-speed">328 km/h</span>
                                 </div>
                                 <div class="f1-hud-item">
                                     <span class="f1-hud-lbl">MARCHA & RPM</span>
                                     <span class="f1-hud-val" id="f1-gear">7ª | 11,850 RPM</span>
                                 </div>
                                 <div class="f1-hud-item">
-                                    <span class="f1-hud-lbl">ESTADO CLIMA</span>
-                                    <span class="f1-hud-val text-cyan" id="f1-weather-label">☀️ Pista Seca (Dry)</span>
-                                </div>
-                                <div class="f1-hud-item">
-                                    <span class="f1-hud-lbl">NEUMÁTICOS</span>
-                                    <span class="f1-hud-val text-red" id="f1-tire-label">🔴 Soft (Desgaste 72%)</span>
+                                    <span class="f1-hud-lbl">NEUMÁTICOS & ESTADO</span>
+                                    <span class="f1-hud-val text-green" id="f1-tire-label">Soft (Desgaste 72%)</span>
                                 </div>
                             </div>
 
+                            <!-- Main Circuit View (100% visible con viewBox amplio) -->
                             <div class="f1-main-track-view" id="f1-track-view">
                                 <div class="f1-rain-overlay" id="f1-rain-overlay"></div>
                                 
-                                <!-- Animated Race Track -->
+                                <div class="f1-track-header-bar">
+                                    <div class="circuit-rotation-indicator">
+                                        <span class="rot-label">Rotación Automática:</span>
+                                        <div class="rot-bar-track">
+                                            <div class="rot-bar-fill" id="f1-circuit-timer-bar"></div>
+                                        </div>
+                                        <span class="rot-time" id="f1-circuit-sec">4s</span>
+                                    </div>
+                                    <div class="f1-lap-counter">VUELTA: <strong id="f1-lap-num">44</strong> / 50</div>
+                                </div>
+
                                 <div class="f1-track-svg-container">
-                                    <svg viewBox="0 0 600 220" class="f1-circuit-svg">
-                                        <!-- Outer Glow track -->
-                                        <path id="f1-circuit-path" d="M 80,110 C 80,40 180,40 280,70 C 380,100 480,40 520,110 C 560,180 440,180 320,150 C 200,120 80,180 80,110 Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="26" stroke-linecap="round"/>
-                                        <path d="M 80,110 C 80,40 180,40 280,70 C 380,100 480,40 520,110 C 560,180 440,180 320,150 C 200,120 80,180 80,110 Z" fill="none" stroke="#6366f1" stroke-width="3" stroke-dasharray="10 15" class="track-centerline"/>
+                                    <svg viewBox="0 0 800 280" class="f1-circuit-svg" preserveAspectRatio="xMidYMid meet">
+                                        <!-- Outer Glow Track -->
+                                        <path id="f1-circuit-path-bg" d="M 260,220 L 620,220 C 660,220 680,200 680,170 C 680,120 670,80 620,60 C 570,45 530,75 480,75 C 430,75 390,55 340,65 C 280,75 220,60 170,80 C 120,100 70,140 70,180 C 70,215 120,220 180,220 Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <!-- Track Centerline -->
+                                        <path id="f1-circuit-path" d="M 260,220 L 620,220 C 660,220 680,200 680,170 C 680,120 670,80 620,60 C 570,45 530,75 480,75 C 430,75 390,55 340,65 C 280,75 220,60 170,80 C 120,100 70,140 70,180 C 70,215 120,220 180,220 Z" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 12" class="track-centerline"/>
                                         
-                                        <!-- Moving Cars -->
-                                        <circle id="car-1" r="9" fill="#ef4444" class="racing-car red-bull">
-                                            <title>P1 Verstappen</title>
-                                        </circle>
-                                        <circle id="car-2" r="8" fill="#eab308" class="racing-car ferrari">
-                                            <title>P2 Hamilton</title>
-                                        </circle>
-                                        <circle id="car-3" r="8" fill="#06b6d4" class="racing-car osorio">
-                                            <title>P3 D. Osorio</title>
-                                        </circle>
+                                        <!-- Moving Race Cars (Totalmente Visibles y con Alto Contraste) -->
+                                        <!-- Car 1: Verstappen -->
+                                        <circle id="car-1" r="8" fill="#06b6d4" stroke="#ffffff" stroke-width="2" class="racing-car car-rb"></circle>
+                                        <!-- Car 2: Hamilton -->
+                                        <circle id="car-2" r="7.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" class="racing-car car-ferrari"></circle>
+                                        <!-- Car 3: Daniel Osorio -->
+                                        <circle id="car-3" r="8" fill="#10b981" stroke="#ffffff" stroke-width="2" class="racing-car car-osorio"></circle>
+                                        <!-- Car 4: Norris -->
+                                        <circle id="car-4" r="7.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.8" class="racing-car car-mclaren"></circle>
                                     </svg>
                                 </div>
 
                                 <div class="f1-track-overlay-hud">
-                                    <div class="f1-lap-counter">VUELTA: <strong id="f1-lap-num">44</strong> / 50</div>
-                                    <div class="f1-pit-msg" id="f1-pit-msg">BOX BOX DISPONIBLE</div>
+                                    <div class="f1-pit-msg" id="f1-pit-msg">TELEMETRÍA EN VIVO</div>
                                 </div>
                             </div>
 
                             <!-- Bottom: Controls & Live Standings -->
                             <div class="f1-bottom-grid">
                                 <div class="f1-controls-box">
-                                    <h5>🕹️ Panel de Control de Simulación</h5>
+                                    <h5>Panel de Control de Simulación</h5>
                                     <div class="f1-btn-group">
                                         <button id="f1-toggle-weather" class="btn btn-outline btn-sm">
-                                            🌧️ <span id="f1-weather-btn-text">Cambiar a Lluvia Torrencial</span>
+                                            <span id="f1-weather-btn-text">Cambiar Clima (Pista Húmeda)</span>
                                         </button>
                                         <button id="f1-pitstop-btn" class="btn btn-primary btn-sm">
-                                            ⚡ Realizar Pit Stop (2.4s)
+                                            Realizar Pit Stop (2.4s)
+                                        </button>
+                                        <button id="f1-next-circuit-btn" class="btn btn-secondary btn-sm">
+                                            Siguiente Pista Manual
                                         </button>
                                     </div>
                                     <p class="f1-tech-note">Cada piloto corre en un hilo independiente (<code>Thread</code>) sincronizado con <code>CyclicBarrier</code> al final de cada vuelta.</p>
@@ -688,12 +689,13 @@
                                 <div class="f1-standings-table">
                                     <table class="f1-table">
                                         <thead>
-                                            <tr><th>POS</th><th>PILOTO</th><th>EQUIPO</th><th>TIEMPO</th><th>NEUMÁTICO</th></tr>
+                                            <tr><th>POS</th><th>PILOTO</th><th>EQUIPO</th><th>TIEMPO</th><th>COMPUESTO</th></tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="f1-p1"><td>1</td><td>M. Verstappen</td><td>Red Bull</td><td>1:18.241</td><td>🔴 Soft</td></tr>
-                                            <tr class="f1-p2"><td>2</td><td>L. Hamilton</td><td>Ferrari</td><td>+0.320s</td><td>🔴 Soft</td></tr>
-                                            <tr class="f1-p3 highlight-row"><td>3</td><td>D. Osorio (Tú)</td><td>Campus F1</td><td>+0.490s</td><td id="f1-row-tire">🔴 Soft</td></tr>
+                                            <tr class="f1-p1"><td>1</td><td>M. Verstappen</td><td>Red Bull</td><td>1:18.241</td><td>Soft</td></tr>
+                                            <tr class="f1-p2"><td>2</td><td>L. Hamilton</td><td>Ferrari</td><td>+0.320s</td><td>Soft</td></tr>
+                                            <tr class="f1-p3 highlight-row"><td>3</td><td>D. Osorio (Tú)</td><td>Campus F1</td><td>+0.490s</td><td id="f1-row-tire">Soft</td></tr>
+                                            <tr><td>4</td><td>L. Norris</td><td>McLaren</td><td>+0.612s</td><td>Soft</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -728,7 +730,7 @@
 
                                 <div class="ecom-products-grid">
                                     <div class="ecom-card active" data-product="chaqueta">
-                                        <div class="ecom-img-ph jacket">🧥</div>
+                                        <div class="ecom-img-ph">JKT</div>
                                         <div class="ecom-details">
                                             <h4>Chaqueta Cuero Vintage</h4>
                                             <div class="ecom-price-row">
@@ -738,7 +740,7 @@
                                         </div>
                                     </div>
                                     <div class="ecom-card" data-product="vestido">
-                                        <div class="ecom-img-ph dress">👗</div>
+                                        <div class="ecom-img-ph">DRS</div>
                                         <div class="ecom-details">
                                             <h4>Vestido Amarillo Solar</h4>
                                             <div class="ecom-price-row">
@@ -747,7 +749,7 @@
                                         </div>
                                     </div>
                                     <div class="ecom-card" data-product="bolso">
-                                        <div class="ecom-img-ph bag">👜</div>
+                                        <div class="ecom-img-ph">BAG</div>
                                         <div class="ecom-details">
                                             <h4>Bolso Urbano Crimson</h4>
                                             <div class="ecom-price-row">
@@ -761,7 +763,7 @@
                             <div class="ecom-detail-col">
                                 <div class="ecom-preview-box">
                                     <h3 id="ecom-active-title">Chaqueta Cuero Vintage</h3>
-                                    <div class="ecom-rating">⭐⭐⭐⭐⭐ <span>(128 valoraciones)</span></div>
+                                    <div class="ecom-rating">Valoración 4.9/5 <span>(128 valoraciones)</span></div>
                                     <p class="ecom-desc" id="ecom-active-desc">Confección en cuero sintético de alta resistencia con acabados mate y forro térmico transpirable.</p>
                                     
                                     <div class="ecom-selectors">
@@ -786,12 +788,12 @@
 
                                     <div class="ecom-cta-row">
                                         <button id="ecom-add-btn" class="btn btn-primary">
-                                            🛒 Agregar al Carrito (<span id="ecom-cur-price">$89.00</span>)
+                                            Agregar al Carrito (<span id="ecom-cur-price">$89.00</span>)
                                         </button>
                                     </div>
 
                                     <div class="ecom-cart-toast" id="ecom-cart-toast">
-                                        <span>🎉 ¡Producto añadido! Carrito: (<span id="ecom-cart-count">1</span>)</span>
+                                        <span>Producto añadido. Carrito: (<span id="ecom-cart-count">1</span>)</span>
                                         <button id="ecom-checkout-btn" class="btn btn-secondary btn-sm">Simular Pago</button>
                                     </div>
                                 </div>
@@ -819,7 +821,7 @@
                         <div class="viajes-demo-layout">
                             <!-- Left: Flight Search & Rates -->
                             <div class="viajes-form-col">
-                                <h4>✈️ Módulo de Cotización y Reserva (CLI Service)</h4>
+                                <h4>Módulo de Cotización y Reserva (CLI Service)</h4>
                                 
                                 <div class="viajes-input-grid">
                                     <div class="viajes-grp">
@@ -865,7 +867,7 @@
                                 </div>
 
                                 <button id="viajes-btn-book" class="btn btn-primary btn-block">
-                                    ✈️ Emitir Reserva (Persistir en SQLite)
+                                    Emitir Reserva (Persistir en SQLite)
                                 </button>
                             </div>
 
@@ -873,7 +875,7 @@
                             <div class="viajes-ticket-col">
                                 <div class="boarding-pass" id="boarding-pass">
                                     <div class="bp-header">
-                                        <span class="bp-airline">CAMPUS WINGS • AIRLINES</span>
+                                        <span class="bp-airline">CAMPUS WINGS AIRLINES</span>
                                         <span class="bp-class">CLASE EJECUTIVA</span>
                                     </div>
                                     <div class="bp-route">
@@ -881,7 +883,7 @@
                                             <span class="bp-code" id="bp-from">BOG</span>
                                             <span class="bp-city">Bogotá</span>
                                         </div>
-                                        <div class="bp-plane">✈️ ➔</div>
+                                        <div class="bp-plane">-&gt;</div>
                                         <div class="bp-loc">
                                             <span class="bp-code" id="bp-to">CDG</span>
                                             <span class="bp-city">París</span>
@@ -926,10 +928,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">Web SPA • Vanilla JS</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">🏦</div>
+                        <div class="project-num-tag">01</div>
                         <h3 class="project-title">Banco ACME - Portal Transaccional</h3>
                         <p class="project-desc i18n" 
                            data-es="Portal bancario interactivo desacoplado con arquitectura modular orientada a Web Components nativos. Incluye seguimiento de saldos, transferencias, cotizaciones en vivo y persistencia local sin frameworks pesados." 
@@ -946,7 +948,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="banco">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/Banco-ACME" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -959,10 +961,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">Automatización • Bot Telegram</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">🤖</div>
+                        <div class="project-num-tag">02</div>
                         <h3 class="project-title">DeliveryBot Cafetería</h3>
                         <p class="project-desc i18n" 
                            data-es="Plataforma de pedidos conversacionales en Telegram orquestada con n8n y Google Sheets como base de datos. Control de stock en tiempo real, teclados interactivos y ciclo de vida del pedido." 
@@ -979,7 +981,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="delivery">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/delivery-bot" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -992,10 +994,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">IA & Microservicio • WhatsApp</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">💬</div>
+                        <div class="project-num-tag">03</div>
                         <h3 class="project-title">Chatbot Contaduría (Gemini AI)</h3>
                         <p class="project-desc i18n" 
                            data-es="Asistente de WhatsApp con Google Gemini AI y Baileys para asesoría contable y tributaria colombiana. Microservicio Dockerizado ultra ligero (~45MB RAM), control de horarios y handoff a asesor humano." 
@@ -1012,7 +1014,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="chatbot">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/chatbot-contaduria" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -1025,10 +1027,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">Concurrencia • Java Swing</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">🏎️</div>
+                        <div class="project-num-tag">04</div>
                         <h3 class="project-title">Fórmula 1 - Simulación Java</h3>
                         <p class="project-desc i18n" 
                            data-es="Motor de simulación interactiva con sistema de concurrencia multihilo (un Thread por piloto), sincronización con CyclicBarrier, gestión de clima dinámico, desgaste de neumáticos y clasificación en vivo." 
@@ -1045,7 +1047,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="f1">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/Formula1-java" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -1058,10 +1060,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">Frontend • SPA Mobile First</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">🛍️</div>
+                        <div class="project-num-tag">05</div>
                         <h3 class="project-title">E-Commerce de Moda</h3>
                         <p class="project-desc i18n" 
                            data-es="Maqueta y flujo interactivo de tienda online. Reutilización dinámica de vista de detalle mediante URL query params, catálogo filtrable, selectores de talla/color y simulación completa de checkout." 
@@ -1077,7 +1079,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="ecommerce">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/E-commerce" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -1090,10 +1092,10 @@
                 <article class="project-card glass">
                     <div class="project-card-header">
                         <div class="project-badge-type">Clean Architecture • Python</div>
-                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                        <div class="project-stars">GitHub Pinned</div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-icon-box">✈️</div>
+                        <div class="project-num-tag">06</div>
                         <h3 class="project-title">Agencia de Viajes - Agile Edition</h3>
                         <p class="project-desc i18n" 
                            data-es="Sistema de gestión por consola para agencias de viaje diseñado bajo Clean Architecture y patrón Repository. Persistencia en SQLite, motor de reservas, emisión de pasajes y conversor multimoneda." 
@@ -1110,7 +1112,7 @@
                     </div>
                     <div class="project-card-footer">
                         <button class="btn btn-primary btn-sm switch-to-demo" data-target="viajes">
-                            <span>⚡ Probar Demo</span>
+                            <span>Probar Demo</span>
                         </button>
                         <a href="https://github.com/santiagoosorio0708e-wq/empresa-viajes" target="_blank" class="btn btn-secondary btn-sm">
                             <span>GitHub</span>
@@ -1192,7 +1194,7 @@
                 <!-- Backend & Lenguajes -->
                 <div class="skills-card glass">
                     <div class="skills-card-header">
-                        <span class="sc-icon">☕</span>
+                        <span class="sc-badge">BE</span>
                         <h3 class="i18n" data-es="Backend & Lenguajes" data-en="Backend & Languages">Backend & Lenguajes</h3>
                     </div>
                     <ul class="skills-tags-list">
@@ -1208,7 +1210,7 @@
                 <!-- Contenerización & Cloud -->
                 <div class="skills-card glass">
                     <div class="skills-card-header">
-                        <span class="sc-icon">🐳</span>
+                        <span class="sc-badge">OPS</span>
                         <h3 class="i18n" data-es="Contenerización & Cloud" data-en="Containerization & Cloud">Contenerización & Cloud</h3>
                     </div>
                     <ul class="skills-tags-list">
@@ -1224,7 +1226,7 @@
                 <!-- Inteligencia Artificial & Automatización -->
                 <div class="skills-card glass">
                     <div class="skills-card-header">
-                        <span class="sc-icon">🤖</span>
+                        <span class="sc-badge">AI</span>
                         <h3 class="i18n" data-es="IA & Automatización" data-en="AI & Automation">IA & Automatización</h3>
                     </div>
                     <ul class="skills-tags-list">
@@ -1240,7 +1242,7 @@
                 <!-- Bases de Datos & Testing -->
                 <div class="skills-card glass">
                     <div class="skills-card-header">
-                        <span class="sc-icon">🗄️</span>
+                        <span class="sc-badge">DB</span>
                         <h3 class="i18n" data-es="Bases de Datos & Calidad" data-en="Databases & Quality">Bases de Datos & Calidad</h3>
                     </div>
                     <ul class="skills-tags-list">
@@ -1316,7 +1318,9 @@
                     
                     <!-- EMAIL -->
                     <div class="contact-method-box">
-                        <div class="cm-icon">✉️</div>
+                        <div class="cm-icon-svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
                         <h4>Correo Electrónico</h4>
                         <a href="mailto:santiagoosorio0708e@gmail.com" class="cm-link">santiagoosorio0708e@gmail.com</a>
                         <button class="btn btn-outline btn-sm copy-btn" data-copy="santiagoosorio0708e@gmail.com">
@@ -1326,7 +1330,9 @@
 
                     <!-- WHATSAPP -->
                     <div class="contact-method-box">
-                        <div class="cm-icon">📱</div>
+                        <div class="cm-icon-svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
                         <h4>WhatsApp Directo</h4>
                         <a href="https://wa.me/573014609110" target="_blank" rel="noopener noreferrer" class="cm-link">+57 301 460 9110</a>
                         <a href="https://wa.me/573014609110" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
@@ -1336,7 +1342,9 @@
 
                     <!-- GITHUB -->
                     <div class="contact-method-box">
-                        <div class="cm-icon">🐙</div>
+                        <div class="cm-icon-svg">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </div>
                         <h4>GitHub</h4>
                         <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="cm-link">@santiagoosorio0708e-wq</a>
                         <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
@@ -1367,9 +1375,9 @@
             </div>
             
             <p class="footer-copy i18n" 
-               data-es="&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones interactivas." 
-               data-en="&copy; 2026 Daniel Santiago Osorio Garces. All rights reserved. Built with native modular architecture and interactive simulations.">
-                &copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones interactivas.
+               data-es="&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones optimizadas a 60 FPS." 
+               data-en="&copy; 2026 Daniel Santiago Osorio Garces. All rights reserved. Built with native modular architecture and 60 FPS optimized animations.">
+                &copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones optimizadas a 60 FPS.
             </p>
 
             <div class="footer-links">
