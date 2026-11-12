@@ -891,12 +891,21 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'help':
                 printTerminal('Comandos disponibles:');
                 printTerminal('  <span class="text-cyan">about</span>       - Perfil profesional y trayectoria');
+                printTerminal('  <span class="text-cyan">cv / hdv</span>    - Descargar Hojas de Vida (ATS y Campuslands)');
                 printTerminal('  <span class="text-cyan">projects</span>    - Los 6 repositorios anclados en GitHub');
                 printTerminal('  <span class="text-cyan">skills</span>      - Stack tecnológico (Java, Docker, n8n, etc.)');
                 printTerminal('  <span class="text-cyan">demo</span>        - Ir directamente al Simulador Interactivo');
                 printTerminal('  <span class="text-cyan">contact</span>     - Canales de contacto profesional');
                 printTerminal('  <span class="text-cyan">matrix</span>      - Mensaje de arquitectura');
                 printTerminal('  <span class="text-cyan">clear</span>       - Limpiar pantalla de terminal');
+                break;
+            case 'cv':
+            case 'hdv':
+            case 'resume':
+                printTerminal('<strong>Hojas de Vida Disponibles (Descarga Directa & Drive):</strong>');
+                printTerminal('• [01] <strong>HDV ATS (PDF):</strong> <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="text-cyan">Descargar PDF</a> | <a href="https://drive.google.com/file/d/1bQABV_C9gZE0iSe6uRBOpIkgEr5aiXaP/view?usp=sharing" target="_blank" class="text-green">Ver en Google Drive ↗</a>');
+                printTerminal('• [02] <strong>HDV Campuslands (PDF):</strong> <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="text-cyan">Descargar Formato Institucional ↗</a>');
+                printTerminal('Formato estándar ATS para reclutadores + diseño institucional de Campuslands.', 'text-muted');
                 break;
             case 'about':
                 printTerminal('<strong>Daniel Santiago Osorio Garces</strong>');

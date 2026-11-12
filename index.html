@@ -43,6 +43,7 @@
                 <ul class="nav-links">
                     <li><a href="#inicio" class="nav-link i18n" data-es="Inicio" data-en="Home">Inicio</a></li>
                     <li><a href="#sobre-mi" class="nav-link i18n" data-es="Sobre Mí" data-en="About">Sobre Mí</a></li>
+                    <li><a href="#hojas-de-vida" class="nav-link i18n" data-es="Hojas de Vida" data-en="Resumes">Hojas de Vida</a></li>
                     <li><a href="#demo-studio" class="nav-link nav-highlight i18n" data-es="Demos en Vivo" data-en="Live Demos">Demos en Vivo</a></li>
                     <li><a href="#proyectos" class="nav-link i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
                     <li><a href="#habilidades" class="nav-link i18n" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
@@ -103,6 +104,10 @@
                         </a>
                         <a href="#proyectos" class="btn btn-secondary">
                             <span class="i18n" data-es="Ver Proyectos Pinned" data-en="View Pinned Repos">Ver Proyectos Pinned</span>
+                        </a>
+                        <a href="#hojas-de-vida" class="btn btn-cv-hero">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            <span class="i18n" data-es="Hojas de Vida (CV)" data-en="Resumes / CVs">Hojas de Vida (CV)</span>
                         </a>
                         <a href="#contacto" class="btn btn-outline">
                             <span class="i18n" data-es="Contactar" data-en="Get in Touch">Contactar</span>
@@ -199,6 +204,22 @@
                            data-en="I strongly believe in <strong>Clean Architecture</strong>, self-documenting code, automated testing with Postman, and continuous deployment across isolated environments using Docker Compose and modern cloud platforms such as Render and Netlify.">
                             Creo firmemente en la <strong>Arquitectura Limpia (Clean Architecture)</strong>, el código autodocumentado, las pruebas automatizadas con Postman y el despliegue continuo en entornos aislados con Docker Compose y plataformas cloud como Render y Netlify.
                         </p>
+
+                        <div class="about-cv-strip">
+                            <span class="acv-label i18n" data-es="Hojas de Vida:" data-en="Curriculum Vitae:">Hojas de Vida:</span>
+                            <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="btn-outline-cyan">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span>HDV ATS (PDF)</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1bQABV_C9gZE0iSe6uRBOpIkgEr5aiXaP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-cyan">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                <span>Drive ATS</span>
+                            </a>
+                            <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="btn-outline-purple">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span>HDV Campuslands (PDF)</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -235,6 +256,94 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- CV & HOJAS DE VIDA SHOWCASE SECTION (ATS & CAMPUSLANDS)                    -->
+        <!-- ========================================================================= -->
+        <section id="hojas-de-vida" class="section cv-showcase-section">
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="DOCUMENTOS PROFESIONALES" data-en="PROFESSIONAL RESUMES">DOCUMENTOS PROFESIONALES</span>
+                <h2 class="section-title i18n" data-es="Hojas de Vida (CV)" data-en="Curriculum Vitae (Resumes)">Hojas de Vida (CV)</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Descarga mi currículum en formato estándar ATS para sistemas de selección o en formato institucional de Campuslands." 
+                   data-en="Download my resume in standard ATS format for recruitment systems or in official Campuslands format.">
+                    Descarga mi currículum en formato estándar ATS para sistemas de selección o en formato institucional de Campuslands.
+                </p>
+            </div>
+
+            <div class="cv-cards-grid">
+                
+                <!-- CARD ATS -->
+                <div class="cv-card cv-card-ats glass">
+                    <div>
+                        <div class="cv-card-header">
+                            <div class="cv-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            </div>
+                            <span class="cv-badge cv-badge-ats">ATS Friendly · 2 Págs</span>
+                        </div>
+                        <h3 class="cv-card-title i18n" data-es="Hoja de Vida ATS" data-en="ATS-Optimized Resume">Hoja de Vida ATS</h3>
+                        <p class="cv-card-desc i18n" 
+                           data-es="Formato estandarizado internacional compatible con motores ATS (Workday, Taleo, Greenhouse). Jerarquía limpia, indexación de palabras clave, proyectos backend, contenerización con Docker, pipelines n8n e IA." 
+                           data-en="International standardized format compatible with ATS engines (Workday, Taleo, Greenhouse). Clean hierarchy, keyword indexing, backend architectures, Docker containerization, and AI pipelines.">
+                            Formato estandarizado internacional compatible con motores ATS (Workday, Taleo, Greenhouse). Jerarquía limpia, indexación de palabras clave, proyectos backend, contenerización con Docker, pipelines n8n e IA.
+                        </p>
+                        <div class="cv-tags">
+                            <span class="cv-tag">Java 21</span>
+                            <span class="cv-tag">Spring Boot</span>
+                            <span class="cv-tag">Docker</span>
+                            <span class="cv-tag">Node.js</span>
+                            <span class="cv-tag">n8n & Gemini</span>
+                            <span class="cv-tag">PostgreSQL</span>
+                            <span class="cv-tag">Scrum</span>
+                        </div>
+                    </div>
+                    <div class="cv-card-actions">
+                        <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="btn btn-primary">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span class="i18n" data-es="Descargar PDF" data-en="Download PDF">Descargar PDF</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1bQABV_C9gZE0iSe6uRBOpIkgEr5aiXaP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <span class="i18n" data-es="Ver en Drive" data-en="View on Drive">Ver en Drive</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD CAMPUSLANDS -->
+                <div class="cv-card cv-card-cl glass">
+                    <div>
+                        <div class="cv-card-header">
+                            <div class="cv-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <span class="cv-badge cv-badge-cl">Campuslands · Oficial</span>
+                        </div>
+                        <h3 class="cv-card-title i18n" data-es="Hoja de Vida Campuslands" data-en="Campuslands Official CV">Hoja de Vida Campuslands</h3>
+                        <p class="cv-card-desc i18n" 
+                           data-es="Formato institucional y gráfico de Campuslands que acredita la formación intensiva de 1,000+ horas: desarrollo práctico en proyectos web, simulación de entregas bajo Scrum, competencias técnicas y socioemocionales de alto desempeño." 
+                           data-en="Campuslands official institutional format certifying intensive 1,000+ hours training: hands-on software projects, Scrum sprint deliveries, and high-performance technical and soft competencies.">
+                            Formato institucional y gráfico de Campuslands que acredita la formación intensiva de 1,000+ horas: desarrollo práctico en proyectos web, simulación de entregas bajo Scrum, competencias técnicas y socioemocionales de alto desempeño.
+                        </p>
+                        <div class="cv-tags">
+                            <span class="cv-tag">Campuslands 2026</span>
+                            <span class="cv-tag">Metodología Scrum</span>
+                            <span class="cv-tag">Lógica & Backend</span>
+                            <span class="cv-tag">DeliveryBot</span>
+                            <span class="cv-tag">Agencia Viajes</span>
+                            <span class="cv-tag">Inglés B1.1</span>
+                        </div>
+                    </div>
+                    <div class="cv-card-actions">
+                        <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="btn btn-secondary">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span class="i18n" data-es="Descargar PDF Campuslands" data-en="Download Campuslands PDF">Descargar PDF Campuslands</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1164,6 +1273,7 @@
                     <span class="chip-label i18n" data-es="Comandos rápidos:" data-en="Quick commands:">Comandos rápidos:</span>
                     <button class="term-chip" data-cmd="help">help</button>
                     <button class="term-chip" data-cmd="about">about</button>
+                    <button class="term-chip" data-cmd="cv">cv</button>
                     <button class="term-chip" data-cmd="projects">projects</button>
                     <button class="term-chip" data-cmd="skills">skills</button>
                     <button class="term-chip" data-cmd="contact">contact</button>
@@ -1282,6 +1392,12 @@
                            data-en="Intensive hands-on immersion program covering backend engineering with Java and Spring Boot, Node.js microservices, Docker containerization, n8n workflow automation, and Artificial Intelligence under the Scrum agile framework.">
                             Formación intensiva de inmersión práctica en desarrollo backend con Java y Spring Boot, microservicios en Node.js, contenerización con Docker, flujos de automatización en n8n e Inteligencia Artificial bajo marco ágil Scrum.
                         </p>
+                        <div class="timeline-cv-link">
+                            <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="btn-subtle-link">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span class="i18n" data-es="Descargar Hoja de Vida Campuslands (PDF)" data-en="Download Campuslands Resume (PDF)">Descargar Hoja de Vida Campuslands (PDF)</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -1350,6 +1466,26 @@
                         <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                             <span class="i18n" data-es="Ver Perfil" data-en="View Profile">Ver Perfil</span>
                         </a>
+                    </div>
+
+                    <!-- HOJAS DE VIDA (CV) -->
+                    <div class="contact-method-box">
+                        <div class="cm-icon-svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <h4 class="i18n" data-es="Hojas de Vida (CV)" data-en="Curriculum Vitae">Hojas de Vida (CV)</h4>
+                        <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="cm-link">HDV ATS & Campuslands</a>
+                        <div style="display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; margin-top: 0.5rem;">
+                            <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="btn btn-primary btn-sm">
+                                <span>ATS (PDF)</span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/1bQABV_C9gZE0iSe6uRBOpIkgEr5aiXaP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                                <span>Drive</span>
+                            </a>
+                            <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="btn btn-secondary btn-sm">
+                                <span>Campuslands</span>
+                            </a>
+                        </div>
                     </div>
 
                 </div>

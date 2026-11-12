@@ -84,6 +84,10 @@ portafolio/
 ├── script.js                   # Motor interactivo, simulador de proyectos, terminal y audio
 ├── README.md                   # Documentación técnica exhaustiva del repositorio
 │
+├── cv/                         # Hojas de vida y currículums profesionales
+│   ├── HojaDeVida_ATS_DanielOsorio.pdf         # Formato estandarizado ATS (Google Drive)
+│   └── HojaDeVida_Campuslands_DanielOsorio.pdf # Formato institucional de Campuslands
+│
 └── img/                        # Recursos gráficos y multimedia optimizados
     └── foto daniel1.png        # Fotografía de perfil profesional
 ```
