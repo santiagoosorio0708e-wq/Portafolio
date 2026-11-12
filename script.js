@@ -904,7 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'resume':
                 printTerminal('<strong>Hojas de Vida Disponibles (Descarga Directa & Drive):</strong>');
                 printTerminal('• [01] <strong>HDV ATS (PDF):</strong> <a href="cv/HojaDeVida_ATS_DanielOsorio.pdf" download="Hoja_de_Vida_ATS_Daniel_Osorio.pdf" class="text-cyan">Descargar PDF</a> | <a href="https://drive.google.com/file/d/1bQABV_C9gZE0iSe6uRBOpIkgEr5aiXaP/view?usp=sharing" target="_blank" class="text-green">Ver en Google Drive ↗</a>');
-                printTerminal('• [02] <strong>HDV Campuslands (PDF):</strong> <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="text-cyan">Descargar Formato Institucional ↗</a>');
+                printTerminal('• [02] <strong>HDV Campuslands (PDF):</strong> <a href="cv/HojaDeVida_Campuslands_DanielOsorio.pdf" download="Hoja_de_Vida_Campuslands_Daniel_Osorio.pdf" class="text-cyan">Descargar PDF</a> | <a href="https://drive.google.com/file/d/1xJmhhROu52DpJHZ2JbXHRRwl4OWtTp86/view?usp=sharing" target="_blank" class="text-green">Ver en Google Drive ↗</a>');
                 printTerminal('Formato estándar ATS para reclutadores + diseño institucional de Campuslands.', 'text-muted');
                 break;
             case 'about':
@@ -931,6 +931,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'contact':
                 printTerminal('Email: <a href="mailto:santiagoosorio0708e@gmail.com" class="text-cyan">santiagoosorio0708e@gmail.com</a>');
                 printTerminal('WhatsApp: <a href="https://wa.me/573014609110" target="_blank" class="text-green">+57 301 460 9110</a>');
+                printTerminal('LinkedIn: <a href="https://www.linkedin.com/in/daniel-santiago-osorio-garc%C3%A9s-03b7633a6/" target="_blank" class="text-cyan">in/daniel-santiago-osorio-garcés</a>');
                 printTerminal('GitHub: <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" class="text-cyan">github.com/santiagoosorio0708e-wq</a>');
                 break;
             case 'demo':
