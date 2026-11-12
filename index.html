@@ -3,167 +3,1383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Osorio | Portafolio</title>
-    <meta name="description" content="Portafolio de Daniel Santiago Osorio Garces, Desarrollador en formación.">
+    <title>Daniel Santiago Osorio Garces | Backend & AI Software Developer</title>
+    <meta name="description" content="Portafolio profesional interactivo de Daniel Santiago Osorio Garces. Desarrollador de Software especializado en Java, Spring Boot, Node.js, Docker, Automatización con n8n e Inteligencia Artificial.">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Daniel Osorio | Software Developer Portfolio">
+    <meta property="og:description" content="Proyectos interactivos con simulaciones en vivo estilo GIF: Banco ACME, DeliveryBot, Chatbot Contaduría, Fórmula 1 Java, E-Commerce y Agencia de Viajes.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#07090e">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Interactive Background Canvas & Ambient Glows -->
+    <canvas id="ambient-canvas"></canvas>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
     <div class="noise-overlay"></div>
 
-    <header class="header">
+    <!-- Notification Toast System -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Fixed Header & Glass Navigation -->
+    <header class="header" id="main-header">
         <nav class="nav">
-            <a href="#inicio" class="logo">Daniel.</a>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="#inicio" class="logo" aria-label="Inicio">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-name">Daniel</span>
+                <span class="logo-dot">.dev</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <div class="nav-menu-wrapper" id="nav-menu-wrapper">
                 <ul class="nav-links">
-                    <li><a href="#sobre-mi" class="i18n" data-es="Sobre Mí" data-en="About Me">Sobre Mí</a></li>
-                    <li><a href="#experiencia" class="i18n" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
-                    <li><a href="#habilidades" class="i18n" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
-                    <li><a href="#formacion" class="i18n" data-es="Formación" data-en="Education">Formación</a></li>
-                    <li><a href="#contacto" class="i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                    <li><a href="#inicio" class="nav-link i18n" data-es="Inicio" data-en="Home">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-link i18n" data-es="Sobre Mí" data-en="About">Sobre Mí</a></li>
+                    <li><a href="#demo-studio" class="nav-link nav-highlight i18n" data-es="⚡ Demos en Vivo" data-en="⚡ Live Demos">⚡ Demos en Vivo</a></li>
+                    <li><a href="#proyectos" class="nav-link i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="#habilidades" class="nav-link i18n" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+                    <li><a href="#terminal" class="nav-link i18n" data-es="Terminal >_" data-en="Terminal >_">Terminal >_</a></li>
+                    <li><a href="#formacion" class="nav-link i18n" data-es="Formación" data-en="Education">Formación</a></li>
+                    <li><a href="#contacto" class="nav-link i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
                 </ul>
-                <button id="lang-toggle" class="btn btn-secondary lang-btn">EN</button>
+            </div>
+
+            <div class="nav-actions">
+                <button id="audio-toggle" class="btn-icon" title="Efectos de sonido (Activado/Desactivado)" aria-label="Toggle Audio">
+                    <span id="audio-icon">🔊</span>
+                </button>
+                <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">
+                    <span class="lang-flag">🌐</span>
+                    <span id="lang-text">EN</span>
+                </button>
+                <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="btn-icon btn-github" title="GitHub Perfil" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menú móvil">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- HERO SECTION -->
         <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Daniel Santiago Osorio Garces</h1>
-                <h2 class="hero-subtitle i18n" data-es="Desarrollador en Formación" data-en="Developer in Training">Desarrollador en Formación</h2>
-                <p class="hero-description i18n" data-es="Técnico laboral en desarrollo de software con formación intensiva en desarrollo web y metodologías ágiles como Scrum. Busco oportunidades para aportar en el desarrollo frontend y continuar fortaleciendo mis habilidades técnicas y personales." data-en="Software development technician with intensive training in web development and agile methodologies like Scrum. I am looking for opportunities to contribute in frontend development and continue strengthening my technical and personal skills.">
-                    Técnico laboral en desarrollo de software con formación intensiva en desarrollo web y metodologías ágiles como Scrum. 
-                    Busco oportunidades para aportar en el desarrollo frontend y continuar fortaleciendo mis habilidades técnicas y personales.
-                </p>
-                <div class="hero-actions">
-                    <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" class="btn btn-primary">GitHub</a>
-                    <a href="#experiencia" class="btn btn-secondary i18n" data-es="Ver Proyectos" data-en="View Projects">Ver Proyectos</a>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="status-pulse"></span>
+                        <span class="status-text i18n" data-es="Disponible para Proyectos y Desarrollo" data-en="Open to Projects & Engineering Roles">Disponible para Proyectos y Desarrollo</span>
+                        <span class="status-flag">🇨🇴 Bucaramanga, CO</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-greeting i18n" data-es="Hola, soy" data-en="Hello, I am">Hola, soy</span><br>
+                        <span class="hero-name-gradient">Daniel Santiago Osorio Garces</span>
+                    </h1>
+
+                    <div class="typewriter-box">
+                        <span class="typewriter-prefix">&gt; </span>
+                        <span id="typewriter-text" class="typewriter-text"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </div>
+
+                    <p class="hero-description i18n" 
+                       data-es="Técnico laboral en desarrollo de software formado en Campuslands. Especializado en backend robusto con Java y Spring Boot, microservicios en Node.js, contenerización con Docker, flujos de automatización en n8n e integraciones de Inteligencia Artificial." 
+                       data-en="Software development technician trained at Campuslands. Specialized in robust backend architectures with Java and Spring Boot, Node.js microservices, Docker containerization, n8n workflow automation, and Artificial Intelligence integrations.">
+                        Técnico laboral en desarrollo de software formado en Campuslands. Especializado en backend robusto con Java y Spring Boot, microservicios en Node.js, contenerización con Docker, flujos de automatización en n8n e integraciones de Inteligencia Artificial.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#demo-studio" class="btn btn-primary glow-btn">
+                            <span class="btn-icon-inner">⚡</span>
+                            <span class="i18n" data-es="Explorar Demos Interactivas" data-en="Explore Live Demos">Explorar Demos Interactivas</span>
+                        </a>
+                        <a href="#proyectos" class="btn btn-secondary">
+                            <span class="btn-icon-inner">📂</span>
+                            <span class="i18n" data-es="Ver Proyectos Pinned" data-en="View Pinned Repos">Ver Proyectos Pinned</span>
+                        </a>
+                        <a href="#contacto" class="btn btn-outline">
+                            <span class="btn-icon-inner">💬</span>
+                            <span class="i18n" data-es="Contactar" data-en="Get in Touch">Contactar</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label i18n" data-es="Proyectos Pinned" data-en="Pinned Repos">Proyectos Pinned</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label i18n" data-es="Arquitectura Limpia" data-en="Clean Architecture">Arquitectura Limpia</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">Docker</span>
+                            <span class="stat-label i18n" data-es="Contenerización" data-en="Containerization">Contenerización</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">n8n + IA</span>
+                            <span class="stat-label i18n" data-es="Automatización" data-en="Automation">Automatización</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image-container">
-                <img src="img/foto%20daniel1.png" alt="Daniel Osorio" class="hero-image" id="profile-img">
+
+                <div class="hero-image-wrapper">
+                    <div class="avatar-cyber-frame">
+                        <div class="cyber-ring ring-1"></div>
+                        <div class="cyber-ring ring-2"></div>
+                        <div class="cyber-ring ring-3"></div>
+                        
+                        <div class="hero-image-container">
+                            <img src="img/foto%20daniel1.png" alt="Daniel Santiago Osorio Garces" class="hero-image" id="profile-img">
+                            <div class="image-overlay-glow"></div>
+                        </div>
+
+                        <!-- Floating Tech Tags around Avatar -->
+                        <div class="tech-badge badge-top-right">
+                            <span class="badge-icon">☕</span>
+                            <span class="badge-text">Java & Spring</span>
+                        </div>
+                        <div class="tech-badge badge-bottom-left">
+                            <span class="badge-icon">🐳</span>
+                            <span class="badge-text">Dockerized</span>
+                        </div>
+                        <div class="tech-badge badge-bottom-right">
+                            <span class="badge-icon">🤖</span>
+                            <span class="badge-text">n8n & Gemini IA</span>
+                        </div>
+                        <div class="tech-badge badge-top-left">
+                            <span class="badge-icon">🚀</span>
+                            <span class="badge-text">Node.js ES6+</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- ABOUT SECTION -->
         <section id="sobre-mi" class="section">
-            <h2 class="section-title i18n" data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
-            <div class="about-content glass">
-                <p class="i18n" data-es="Soy Daniel Santiago Osorio Garces, desarrollador en formación especializado en automatización e integración de IA. Mi enfoque está en diseñar y construir soluciones tecnológicas que resuelvan problemas reales, desde arquitecturas backend hasta aplicaciones web y agentes conversacionales." data-en="I am Daniel Santiago Osorio Garces, a developer in training specializing in automation and AI integration. My focus is on designing and building technological solutions that solve real problems, from backend architectures to web applications and conversational agents.">
-                    Soy Daniel Santiago Osorio Garces, desarrollador en formación especializado en automatización e integración de IA. Mi enfoque está en diseñar y construir soluciones tecnológicas que resuelvan problemas reales, desde arquitecturas backend hasta aplicaciones web y agentes conversacionales.
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="PERFIL & ENFOQUE" data-en="PROFILE & APPROACH">PERFIL & ENFOQUE</span>
+                <h2 class="section-title i18n" data-es="Sobre Mí" data-en="About Me">Sobre Mí</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Construyendo soluciones de software orientadas a rendimiento, modularidad e impacto tangible." 
+                   data-en="Building software solutions focused on performance, modularity, and tangible impact.">
+                    Construyendo soluciones de software orientadas a rendimiento, modularidad e impacto tangible.
                 </p>
-                <p class="i18n" data-es="Formado en Campuslands bajo metodologías Scrum/Agile, he participado en proyectos que abarcan la creación de plataformas web completas, automatización empresarial con n8n y bots de Telegram impulsados por IA. Como desarrollador, me enfoco en la optimización de procesos y la creación de productos digitales eficientes." data-en="Trained at Campuslands under Scrum/Agile methodologies, I have participated in projects covering the creation of complete web platforms, business automation with n8n, and AI-powered Telegram bots. As a developer, I focus on process optimization and the creation of efficient digital products.">
-                    Formado en Campuslands bajo metodologías Scrum/Agile, he participado en proyectos que abarcan la creación de plataformas web completas, automatización empresarial con n8n y bots de Telegram impulsados por IA. Como desarrollador, me enfoco en la optimización de procesos y la creación de productos digitales eficientes.
-                </p>
-                <p class="i18n" data-es="Actualmente continúo fortaleciendo mis habilidades en desarrollo de software, automatización y arquitectura de sistemas, con un interés creciente en las tecnologías de inteligencia artificial aplicadas a entornos reales." data-en="I am currently continuing to strengthen my skills in software development, automation, and system architecture, with a growing interest in artificial intelligence technologies applied to real environments.">
-                    Actualmente continúo fortaleciendo mis habilidades en desarrollo de software, automatización y arquitectura de sistemas, con un interés creciente en las tecnologías de inteligencia artificial aplicadas a entornos reales.
-                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-main glass">
+                    <div class="glass-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">perfil_profesional.md</span>
+                    </div>
+                    <div class="about-body">
+                        <p class="i18n" 
+                           data-es="Soy <strong>Daniel Santiago Osorio Garces</strong>, desarrollador de software formado en el ecosistema de alto rendimiento de <strong>Campuslands</strong>. Me apasiona resolver problemas complejos mediante arquitecturas escalables, diseño de APIs RESTful, flujos de automatización de procesos y la integración práctica de Inteligencia Artificial." 
+                           data-en="I am <strong>Daniel Santiago Osorio Garces</strong>, a software developer trained in the high-performance ecosystem of <strong>Campuslands</strong>. I am passionate about solving complex challenges through scalable architectures, RESTful API design, process automation pipelines, and practical AI integrations.">
+                            Soy <strong>Daniel Santiago Osorio Garces</strong>, desarrollador de software formado en el ecosistema de alto rendimiento de <strong>Campuslands</strong>. Me apasiona resolver problemas complejos mediante arquitecturas escalables, diseño de APIs RESTful, flujos de automatización de procesos y la integración práctica de Inteligencia Artificial.
+                        </p>
+                        <p class="i18n" 
+                           data-es="Trabajo bajo la metodología <strong>Scrum/Agile</strong> con control de versiones avanzado en Git (GitFlow). Mi experiencia práctica abarca desde la creación de plataformas bancarias modulares (Web Components nativos) y simuladores multihilo concurrentes en Java, hasta microservicios ligeros en Docker y bots conversacionales con <strong>Google Gemini</strong> y <strong>n8n</strong>." 
+                           data-en="I work under <strong>Scrum/Agile</strong> methodologies with advanced Git version control (GitFlow). My practical track record spans from modular transactional banking portals (native Web Components) and multithreaded concurrent simulators in Java, to lightweight Dockerized microservices and conversational bots powered by <strong>Google Gemini</strong> and <strong>n8n</strong>.">
+                            Trabajo bajo la metodología <strong>Scrum/Agile</strong> con control de versiones avanzado en Git (GitFlow). Mi experiencia práctica abarca desde la creación de plataformas bancarias modulares (Web Components nativos) y simuladores multihilo concurrentes en Java, hasta microservicios ligeros en Docker y bots conversacionales con <strong>Google Gemini</strong> y <strong>n8n</strong>.
+                        </p>
+                        <p class="i18n" 
+                           data-es="Creo firmemente en la <strong>Arquitectura Limpia (Clean Architecture)</strong>, el código autodocumentado, las pruebas automatizadas con Postman y el despliegue continuo en entornos aislados con Docker Compose y plataformas cloud como Render y Netlify." 
+                           data-en="I strongly believe in <strong>Clean Architecture</strong>, self-documenting code, automated testing with Postman, and continuous deployment across isolated environments using Docker Compose and modern cloud platforms such as Render and Netlify.">
+                            Creo firmemente en la <strong>Arquitectura Limpia (Clean Architecture)</strong>, el código autodocumentado, las pruebas automatizadas con Postman y el despliegue continuo en entornos aislados con Docker Compose y plataformas cloud como Render y Netlify.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-pillars">
+                    <div class="pillar-card glass">
+                        <div class="pillar-icon">🏛️</div>
+                        <div class="pillar-content">
+                            <h3 class="i18n" data-es="Backend & APIs REST" data-en="Backend & RESTful APIs">Backend & APIs REST</h3>
+                            <p class="i18n" data-es="Servicios desacoplados con Java, Spring Boot y Node.js orientados a consistencia, validaciones de negocio y rendimiento." data-en="Decoupled services with Java, Spring Boot, and Node.js built for reliability, business validation, and throughput.">Servicios desacoplados con Java, Spring Boot y Node.js orientados a consistencia, validaciones de negocio y rendimiento.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card glass">
+                        <div class="pillar-icon">🐳</div>
+                        <div class="pillar-content">
+                            <h3 class="i18n" data-es="Docker & Entornos Cloud" data-en="Docker & Cloud Environments">Docker & Entornos Cloud</h3>
+                            <p class="i18n" data-es="Contenerización de aplicaciones, aislamiento de bases de datos PostgreSQL/MySQL y despliegues productivos en Render." data-en="Application containerization, PostgreSQL/MySQL database isolation, and production deployments on Render.">Contenerización de aplicaciones, aislamiento de bases de datos PostgreSQL/MySQL y despliegues productivos en Render.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card glass">
+                        <div class="pillar-icon">🤖</div>
+                        <div class="pillar-content">
+                            <h3 class="i18n" data-es="Automatización & IA" data-en="Automation & AI">Automatización & IA</h3>
+                            <p class="i18n" data-es="Orquestación en n8n, agentes inteligentes con Google Gemini y bots conversacionales en WhatsApp (Baileys) y Telegram." data-en="n8n workflow orchestration, intelligent agents with Google Gemini, and conversational bots on WhatsApp (Baileys) & Telegram.">Orquestación en n8n, agentes inteligentes con Google Gemini y bots conversacionales en WhatsApp (Baileys) y Telegram.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card glass">
+                        <div class="pillar-icon">🧪</div>
+                        <div class="pillar-content">
+                            <h3 class="i18n" data-es="Testing & Calidad de Código" data-en="Testing & Code Quality">Testing & Calidad de Código</h3>
+                            <p class="i18n" data-es="Validación rigurosa de contratos de datos con Postman, pruebas unitarias y flujos estructurados bajo GitFlow." data-en="Rigorous API contract validation with Postman, unit test suites, and structured GitFlow branches.">Validación rigurosa de contratos de datos con Postman, pruebas unitarias y flujos estructurados bajo GitFlow.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="experiencia" class="section">
-            <h2 class="section-title i18n" data-es="Experiencia y Proyectos" data-en="Experience and Projects">Experiencia y Proyectos</h2>
-            <div class="grid cards">
-                <div class="card">
-                    <h3 class="i18n" data-es="Agencia de Viajes - Campuslands" data-en="Travel Agency - Campuslands">Agencia de Viajes - Campuslands</h3>
-                    <p class="i18n" data-es="Agencia de viajes en Python con múltiples funcionalidades: gestión de divisas, alquileres, reservas, tarifas y préstamos." data-en="Python travel agency with multiple features: currency management, rentals, reservations, fares, and loans.">Agencia de viajes en Python con múltiples funcionalidades: gestión de divisas, alquileres, reservas, tarifas y préstamos.</p>
+        <!-- ========================================================================= -->
+        <!-- FLAGSHIP FEATURE: INTERACTIVE DEMO STUDIO (ESTILO GIF & INTERACTIVO)    -->
+        <!-- ========================================================================= -->
+        <section id="demo-studio" class="section demo-studio-section">
+            <div class="section-header">
+                <span class="section-tag studio-tag i18n" data-es="⚡ ESTUDIO INTERACTIVO" data-en="⚡ INTERACTIVE LAB">⚡ ESTUDIO INTERACTIVO</span>
+                <h2 class="section-title i18n" data-es="Simulador de Proyectos en Vivo" data-en="Live Project Simulator">Simulador de Proyectos en Vivo</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Demostraciones visuales interactivas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-Demo (Estilo GIF animado)</strong> para verlos en acción o cambia al <strong>Modo Interactivo</strong> para probarlos tú mismo." 
+                   data-en="Visual interactive demonstrations of the 6 pinned GitHub projects. Switch to <strong>Auto-Demo Mode (Animated GIF style)</strong> to watch automated loops or switch to <strong>Interactive Mode</strong> to test them yourself.">
+                    Demostraciones visuales interactivas de los 6 proyectos anclados en GitHub. Activa el modo <strong>Auto-Demo (Estilo GIF animado)</strong> para verlos en acción o cambia al <strong>Modo Interactivo</strong> para probarlos tú mismo.
+                </p>
+            </div>
+
+            <!-- Studio Main Container -->
+            <div class="studio-wrapper glass">
+                
+                <!-- Studio Control Bar -->
+                <div class="studio-topbar">
+                    <div class="studio-controls-left">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="studio-badge-status">
+                            <span class="status-pulse-small"></span>
+                            <span class="studio-status-text" id="studio-status-text">SIMULADOR ACTIVO</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Tabs Bar -->
+                    <div class="studio-tabs-scroller" role="tablist">
+                        <button class="studio-tab active" data-project="banco" role="tab" aria-selected="true">
+                            <span class="tab-emoji">🏦</span>
+                            <span class="tab-name">Banco ACME</span>
+                            <span class="tab-badge">SPA</span>
+                        </button>
+                        <button class="studio-tab" data-project="delivery" role="tab" aria-selected="false">
+                            <span class="tab-emoji">🤖</span>
+                            <span class="tab-name">DeliveryBot</span>
+                            <span class="tab-badge">n8n</span>
+                        </button>
+                        <button class="studio-tab" data-project="chatbot" role="tab" aria-selected="false">
+                            <span class="tab-emoji">💬</span>
+                            <span class="tab-name">Chatbot Contaduría</span>
+                            <span class="tab-badge">Gemini IA</span>
+                        </button>
+                        <button class="studio-tab" data-project="f1" role="tab" aria-selected="false">
+                            <span class="tab-emoji">🏎️</span>
+                            <span class="tab-name">Fórmula 1</span>
+                            <span class="tab-badge">Java 21</span>
+                        </button>
+                        <button class="studio-tab" data-project="ecommerce" role="tab" aria-selected="false">
+                            <span class="tab-emoji">🛍️</span>
+                            <span class="tab-name">E-Commerce</span>
+                            <span class="tab-badge">Web</span>
+                        </button>
+                        <button class="studio-tab" data-project="viajes" role="tab" aria-selected="false">
+                            <span class="tab-emoji">✈️</span>
+                            <span class="tab-name">Agencia Viajes</span>
+                            <span class="tab-badge">Python</span>
+                        </button>
+                    </div>
+
+                    <!-- Mode Switch & Play/Pause -->
+                    <div class="studio-mode-controls">
+                        <div class="mode-switch-wrapper">
+                            <button id="mode-auto-btn" class="mode-btn active" title="Reproducción continua estilo GIF animado">
+                                <span class="mode-icon">▶️</span>
+                                <span class="mode-label i18n" data-es="Auto-GIF" data-en="Auto-GIF">Auto-GIF</span>
+                            </button>
+                            <button id="mode-interactive-btn" class="mode-btn" title="Interactúa manualmente con botones y formularios">
+                                <span class="mode-icon">🖐️</span>
+                                <span class="mode-label i18n" data-es="Interactivo" data-en="Interactive">Interactivo</span>
+                            </button>
+                        </div>
+                        <button id="studio-play-toggle" class="btn-icon-subtle" title="Pausar / Reanudar Auto-Demo">⏸️</button>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3 class="i18n" data-es="Landing Pages - Campuslands" data-en="Landing Pages - Campuslands">Landing Pages - Campuslands</h3>
-                    <p class="i18n" data-es="Diseño y maquetación de páginas web con diseño completamente responsivo, optimizando la experiencia del usuario." data-en="Design and layout of completely responsive web pages, optimizing the user experience.">Diseño y maquetación de páginas web con diseño completamente responsivo, optimizando la experiencia del usuario.</p>
+
+                <!-- Auto-Demo Progress Bar -->
+                <div class="auto-demo-progress-track">
+                    <div class="auto-demo-progress-bar" id="demo-progress-bar"></div>
                 </div>
-                <div class="card">
-                    <h3 class="i18n" data-es="Simulación de la Fórmula 1" data-en="Formula 1 Simulation">Simulación de la Fórmula 1</h3>
-                    <p class="i18n" data-es="Aplicación de simulación de carreras que incluye climas dinámicos, simulaciones en tiempo real y la capacidad de agregar pilotos." data-en="Racing simulation application that includes dynamic weather, real-time simulations, and the ability to add drivers.">Aplicación de simulación de carreras que incluye climas dinámicos, simulaciones en tiempo real y la capacidad de agregar pilotos.</p>
+
+                <!-- Simulation Canvas Window -->
+                <div class="studio-viewport" id="studio-viewport">
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 1: BANCO ACME (Portal Transaccional SPA) -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen active" id="demo-screen-banco">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">Banco ACME v2.4 • Portal Transaccional</span>
+                                <span class="meta-tag">Web Components ES6+</span>
+                                <span class="meta-tag">localStorage Persistente</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/Banco-ACME" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="banco-demo-grid">
+                            <!-- Left: Interactive Card & Quick Stats -->
+                            <div class="banco-card-column">
+                                <div class="virtual-card" id="banco-virtual-card">
+                                    <div class="vcard-top">
+                                        <span class="vcard-chip"></span>
+                                        <span class="vcard-brand">ACME BLACK</span>
+                                    </div>
+                                    <div class="vcard-balance">
+                                        <span class="vcard-label i18n" data-es="Saldo Disponible" data-en="Available Balance">Saldo Disponible</span>
+                                        <span class="vcard-amount" id="banco-balance-display">$4,850,000 COP</span>
+                                    </div>
+                                    <div class="vcard-bottom">
+                                        <div class="vcard-holder">
+                                            <span class="vcard-small">TITULAR</span>
+                                            <span class="vcard-name">DANIEL S. OSORIO</span>
+                                        </div>
+                                        <div class="vcard-number">•••• 4892</div>
+                                    </div>
+                                </div>
+
+                                <div class="banco-quick-metrics">
+                                    <div class="bmetric-box">
+                                        <span class="bmetric-lbl i18n" data-es="Cripto BTC/COP" data-en="Crypto BTC/COP">Cripto BTC/COP</span>
+                                        <span class="bmetric-val text-green">+3.4% ($385M)</span>
+                                    </div>
+                                    <div class="bmetric-box">
+                                        <span class="bmetric-lbl i18n" data-es="Cuenta Activa" data-en="Active Account">Cuenta Activa</span>
+                                        <span class="bmetric-val">#9041-8812</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Transfer Panel & Ledger -->
+                            <div class="banco-actions-column">
+                                <div class="banco-transfer-box">
+                                    <div class="box-title-row">
+                                        <h4>⚡ <span class="i18n" data-es="Transferencia Rápida en Línea" data-en="Fast Online Transfer">Transferencia Rápida en Línea</span></h4>
+                                        <span class="status-pill text-green">● Mock Abierto</span>
+                                    </div>
+
+                                    <div class="banco-form-row">
+                                        <div class="banco-input-grp">
+                                            <label class="i18n" data-es="Destinatario" data-en="Recipient">Destinatario</label>
+                                            <select id="banco-recipient" class="banco-select">
+                                                <option value="Camila Gomez">Camila Gómez (Campuslands)</option>
+                                                <option value="Servidor Cloud">Render Cloud Hosting</option>
+                                                <option value="Carlos Perez">Carlos Pérez (Freelance)</option>
+                                            </select>
+                                        </div>
+                                        <div class="banco-input-grp">
+                                            <label class="i18n" data-es="Monto (COP)" data-en="Amount (COP)">Monto (COP)</label>
+                                            <input type="number" id="banco-amount" class="banco-input" value="150000" step="50000">
+                                        </div>
+                                    </div>
+
+                                    <div class="banco-btn-row">
+                                        <button id="banco-btn-transfer" class="btn btn-primary btn-sm">
+                                            <span id="banco-btn-text" class="i18n" data-es="Enviar Transferencia" data-en="Send Transfer">Enviar Transferencia</span>
+                                        </button>
+                                        <button id="banco-btn-reset" class="btn btn-outline btn-sm i18n" data-es="Restablecer Saldo" data-en="Reset Balance">Restablecer Saldo</button>
+                                    </div>
+                                    
+                                    <div id="banco-transfer-feedback" class="banco-feedback"></div>
+                                </div>
+
+                                <!-- Transaction Ledger -->
+                                <div class="banco-ledger">
+                                    <h5 class="i18n" data-es="Historial de Movimientos Recientes" data-en="Recent Transactions Ledger">Historial de Movimientos Recientes</h5>
+                                    <div class="ledger-list" id="banco-ledger-list">
+                                        <div class="ledger-item positive">
+                                            <span class="ledger-icon">📥</span>
+                                            <div class="ledger-details">
+                                                <span class="ledger-name">Pago Nómina Campuslands</span>
+                                                <span class="ledger-date">Hoy, 10:45 AM</span>
+                                            </div>
+                                            <span class="ledger-amt">+$2,500,000 COP</span>
+                                        </div>
+                                        <div class="ledger-item negative">
+                                            <span class="ledger-icon">📤</span>
+                                            <div class="ledger-details">
+                                                <span class="ledger-name">Render Web Service</span>
+                                                <span class="ledger-date">Ayer, 04:20 PM</span>
+                                            </div>
+                                            <span class="ledger-amt">-$65,000 COP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 2: DELIVERYBOT (Telegram Cafetería & n8n) -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen" id="demo-screen-delivery">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">DeliveryBot Cafetería • Telegram + n8n + Google Sheets</span>
+                                <span class="meta-tag">Serverless n8n</span>
+                                <span class="meta-tag">Polling Activo 10s</span>
+                                <span class="meta-tag">Control de Stock</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/delivery-bot" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="telegram-demo-container">
+                            <div class="telegram-phone-frame">
+                                <div class="tg-header">
+                                    <div class="tg-avatar">☕</div>
+                                    <div class="tg-chat-info">
+                                        <div class="tg-chat-title">DeliveryBot Cafetería</div>
+                                        <div class="tg-chat-status">bot • conectado a n8n</div>
+                                    </div>
+                                    <div class="tg-actions">
+                                        <button id="tg-btn-reset" class="tg-small-btn" title="Reiniciar chat">🔄</button>
+                                    </div>
+                                </div>
+
+                                <div class="tg-messages-area" id="tg-messages-area">
+                                    <div class="tg-msg bot">
+                                        <div class="tg-bubble">
+                                            ¡Hola Daniel! ☕ Bienvenido a la cafetería universitaria. Te ayudamos a ordenar sin filas.
+                                        </div>
+                                        <span class="tg-time">10:14</span>
+                                    </div>
+                                    <div class="tg-msg bot">
+                                        <div class="tg-bubble">
+                                            Por favor selecciona una categoría del menú:
+                                            <div class="tg-keyboard" id="tg-cat-keyboard">
+                                                <button class="tg-btn" data-tg-action="cat_bebidas">☕ Bebidas</button>
+                                                <button class="tg-btn" data-tg-action="cat_snacks">🥪 Snacks</button>
+                                                <button class="tg-btn" data-tg-action="cat_almuerzos">🍱 Almuerzos</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tg-order-stepper" id="tg-stepper" style="display:none;">
+                                    <div class="step-point active" id="st-1">1. Recibido</div>
+                                    <div class="step-point" id="st-2">2. Cocina</div>
+                                    <div class="step-point" id="st-3">3. En Camino</div>
+                                    <div class="step-point" id="st-4">4. Entregado</div>
+                                </div>
+
+                                <div class="tg-input-bar">
+                                    <input type="text" id="tg-user-input" placeholder="Escribe un comando (/menu, /carrito, /pedir)..." class="tg-input">
+                                    <button id="tg-send-btn" class="tg-send">➤</button>
+                                </div>
+                            </div>
+
+                            <div class="tg-info-panel">
+                                <h4>📊 Sincronización en Tiempo Real</h4>
+                                <p>El bot consulta las tablas de <code>Google Sheets (DeliveryBot_DB)</code> para verificar el inventario disponible y asegurar que no se vendan productos agotados.</p>
+                                
+                                <div class="sheets-mock">
+                                    <div class="sheets-header">Hoja: <code>MENU</code> (Google Sheets API)</div>
+                                    <table class="sheets-table">
+                                        <thead>
+                                            <tr><th>ID</th><th>Producto</th><th>Precio</th><th>Stock</th></tr>
+                                        </thead>
+                                        <tbody id="tg-sheets-body">
+                                            <tr><td>BEB-001</td><td>Café Americano</td><td>$3.500</td><td id="stock-cafe">12</td></tr>
+                                            <tr><td>BEB-002</td><td>Capuchino Vainilla</td><td>$5.200</td><td>8</td></tr>
+                                            <tr><td>SNK-001</td><td>Sándwich Mixto</td><td>$6.800</td><td id="stock-sand">5</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="n8n-flow-pill">
+                                    <span class="n8n-icon">⚡</span>
+                                    <span>Flujo n8n: <code>Schedule Trigger ➔ Polling Telegram ➔ Switch ➔ Sheets ➔ WhatsApp / Push</code></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 3: CHATBOT CONTADURÍA (WhatsApp + Gemini) -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen" id="demo-screen-chatbot">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">Chatbot Contaduría • Asistente DIAN con Google Gemini AI & Baileys</span>
+                                <span class="meta-tag">Docker Alpine ~45MB</span>
+                                <span class="meta-tag">Horarios Colombia</span>
+                                <span class="meta-tag">Handoff Humano</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/chatbot-contaduria" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="whatsapp-demo-layout">
+                            <!-- Left: WhatsApp Screen -->
+                            <div class="wa-phone-frame">
+                                <div class="wa-header">
+                                    <div class="wa-avatar">⚖️</div>
+                                    <div class="wa-contact-info">
+                                        <span class="wa-name">Asesoría Tributaria IA (DIAN)</span>
+                                        <span class="wa-status">En línea • Google Gemini 2.0</span>
+                                    </div>
+                                    <div class="wa-actions">
+                                        <span class="wa-tag-pill">Docker ~45MB</span>
+                                    </div>
+                                </div>
+
+                                <div class="wa-chat-window" id="wa-chat-window">
+                                    <div class="wa-bubble wa-bot">
+                                        <p>¡Hola! Soy tu asistente tributario impulsado por IA. ¿En qué tema contable o fiscal colombiano te puedo orientar hoy?</p>
+                                        <span class="wa-time">09:30</span>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Questions Chips -->
+                                <div class="wa-quick-prompts">
+                                    <button class="wa-chip" data-query="renta">📅 ¿Cuándo declaro renta?</button>
+                                    <button class="wa-chip" data-query="retencion">💰 Calcular retención</button>
+                                    <button class="wa-chip" data-query="asesor">👩‍💼 Hablar con la Contadora</button>
+                                </div>
+
+                                <div class="wa-input-row">
+                                    <input type="text" id="wa-text-input" placeholder="Escribe tu consulta tributaria..." class="wa-input">
+                                    <button id="wa-send-btn" class="wa-send-btn">➤</button>
+                                </div>
+                            </div>
+
+                            <!-- Right: Architecture & Features Specs -->
+                            <div class="wa-specs-panel">
+                                <h4>🧠 Características de Inteligencia Artificial</h4>
+                                <ul class="spec-list">
+                                    <li><strong>Google Gemini AI:</strong> Respuestas fundamentadas en normativa DIAN vigente y estatuto tributario.</li>
+                                    <li><strong>Motor Baileys:</strong> Conexión nativa por WebSocket sin Chromium pesado (consumo reducido de >550MB a solo ~45MB de RAM).</li>
+                                    <li><strong>Control de Horario Laboral:</strong> Configurado con zona horaria <code>America/Bogota</code> para atención diurna y cooldown nocturno.</li>
+                                    <li><strong>Detección de Handoff:</strong> Silencia la IA automáticamente cuando el usuario solicita atención de un contador humano. Comando <code>/reactivar</code> disponible.</li>
+                                </ul>
+
+                                <div class="docker-pill-badge">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.954 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.145a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m5.884 2.714h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H8.1a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.145a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.929 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H2.216a.186.186 0 00-.186.186v1.888c0 .102.084.185.186.185"/></svg>
+                                    <span>Contenedor Docker Alpine listo para Render</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 4: FORMULA 1 (Simulación Java Swing Concurrente) -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen" id="demo-screen-f1">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">Formula 1 Race Simulator • Java 21 Swing & Concurrencia</span>
+                                <span class="meta-tag">Hilos (CyclicBarrier)</span>
+                                <span class="meta-tag">20 Pilotos Concurrentes</span>
+                                <span class="meta-tag">Clima Dinámico</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/Formula1-java" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="f1-dashboard">
+                            <!-- Circuit & Telemetry Bar -->
+                            <div class="f1-top-telemetry">
+                                <div class="f1-hud-item">
+                                    <span class="f1-hud-lbl">VELOCIDAD</span>
+                                    <span class="f1-hud-val" id="f1-speed">324 km/h</span>
+                                </div>
+                                <div class="f1-hud-item">
+                                    <span class="f1-hud-lbl">MARCHA & RPM</span>
+                                    <span class="f1-hud-val" id="f1-gear">7ª | 11,850 RPM</span>
+                                </div>
+                                <div class="f1-hud-item">
+                                    <span class="f1-hud-lbl">ESTADO CLIMA</span>
+                                    <span class="f1-hud-val text-cyan" id="f1-weather-label">☀️ Pista Seca (Dry)</span>
+                                </div>
+                                <div class="f1-hud-item">
+                                    <span class="f1-hud-lbl">NEUMÁTICOS</span>
+                                    <span class="f1-hud-val text-red" id="f1-tire-label">🔴 Soft (Desgaste 72%)</span>
+                                </div>
+                            </div>
+
+                            <div class="f1-main-track-view" id="f1-track-view">
+                                <div class="f1-rain-overlay" id="f1-rain-overlay"></div>
+                                
+                                <!-- Animated Race Track -->
+                                <div class="f1-track-svg-container">
+                                    <svg viewBox="0 0 600 220" class="f1-circuit-svg">
+                                        <!-- Outer Glow track -->
+                                        <path id="f1-circuit-path" d="M 80,110 C 80,40 180,40 280,70 C 380,100 480,40 520,110 C 560,180 440,180 320,150 C 200,120 80,180 80,110 Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="26" stroke-linecap="round"/>
+                                        <path d="M 80,110 C 80,40 180,40 280,70 C 380,100 480,40 520,110 C 560,180 440,180 320,150 C 200,120 80,180 80,110 Z" fill="none" stroke="#6366f1" stroke-width="3" stroke-dasharray="10 15" class="track-centerline"/>
+                                        
+                                        <!-- Moving Cars -->
+                                        <circle id="car-1" r="9" fill="#ef4444" class="racing-car red-bull">
+                                            <title>P1 Verstappen</title>
+                                        </circle>
+                                        <circle id="car-2" r="8" fill="#eab308" class="racing-car ferrari">
+                                            <title>P2 Hamilton</title>
+                                        </circle>
+                                        <circle id="car-3" r="8" fill="#06b6d4" class="racing-car osorio">
+                                            <title>P3 D. Osorio</title>
+                                        </circle>
+                                    </svg>
+                                </div>
+
+                                <div class="f1-track-overlay-hud">
+                                    <div class="f1-lap-counter">VUELTA: <strong id="f1-lap-num">44</strong> / 50</div>
+                                    <div class="f1-pit-msg" id="f1-pit-msg">BOX BOX DISPONIBLE</div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom: Controls & Live Standings -->
+                            <div class="f1-bottom-grid">
+                                <div class="f1-controls-box">
+                                    <h5>🕹️ Panel de Control de Simulación</h5>
+                                    <div class="f1-btn-group">
+                                        <button id="f1-toggle-weather" class="btn btn-outline btn-sm">
+                                            🌧️ <span id="f1-weather-btn-text">Cambiar a Lluvia Torrencial</span>
+                                        </button>
+                                        <button id="f1-pitstop-btn" class="btn btn-primary btn-sm">
+                                            ⚡ Realizar Pit Stop (2.4s)
+                                        </button>
+                                    </div>
+                                    <p class="f1-tech-note">Cada piloto corre en un hilo independiente (<code>Thread</code>) sincronizado con <code>CyclicBarrier</code> al final de cada vuelta.</p>
+                                </div>
+
+                                <div class="f1-standings-table">
+                                    <table class="f1-table">
+                                        <thead>
+                                            <tr><th>POS</th><th>PILOTO</th><th>EQUIPO</th><th>TIEMPO</th><th>NEUMÁTICO</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="f1-p1"><td>1</td><td>M. Verstappen</td><td>Red Bull</td><td>1:18.241</td><td>🔴 Soft</td></tr>
+                                            <tr class="f1-p2"><td>2</td><td>L. Hamilton</td><td>Ferrari</td><td>+0.320s</td><td>🔴 Soft</td></tr>
+                                            <tr class="f1-p3 highlight-row"><td>3</td><td>D. Osorio (Tú)</td><td>Campus F1</td><td>+0.490s</td><td id="f1-row-tire">🔴 Soft</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 5: E-COMMERCE MODA (Tienda Dinámica)     -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen" id="demo-screen-ecommerce">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">E-Commerce Moda • Tienda Web Dinámica</span>
+                                <span class="meta-tag">URL Query Params</span>
+                                <span class="meta-tag">Carrito Dinámico</span>
+                                <span class="meta-tag">Simulación Checkout</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/E-commerce" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="ecom-demo-layout">
+                            <div class="ecom-catalog-col">
+                                <div class="ecom-filter-bar">
+                                    <span class="ecom-category active">Ropa Urbana</span>
+                                    <span class="ecom-category">Chaquetas</span>
+                                    <span class="ecom-category">Accesorios</span>
+                                </div>
+
+                                <div class="ecom-products-grid">
+                                    <div class="ecom-card active" data-product="chaqueta">
+                                        <div class="ecom-img-ph jacket">🧥</div>
+                                        <div class="ecom-details">
+                                            <h4>Chaqueta Cuero Vintage</h4>
+                                            <div class="ecom-price-row">
+                                                <span class="price">$89.00 USD</span>
+                                                <span class="badge-discount">-20% Hoy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ecom-card" data-product="vestido">
+                                        <div class="ecom-img-ph dress">👗</div>
+                                        <div class="ecom-details">
+                                            <h4>Vestido Amarillo Solar</h4>
+                                            <div class="ecom-price-row">
+                                                <span class="price">$55.00 USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ecom-card" data-product="bolso">
+                                        <div class="ecom-img-ph bag">👜</div>
+                                        <div class="ecom-details">
+                                            <h4>Bolso Urbano Crimson</h4>
+                                            <div class="ecom-price-row">
+                                                <span class="price">$42.00 USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ecom-detail-col">
+                                <div class="ecom-preview-box">
+                                    <h3 id="ecom-active-title">Chaqueta Cuero Vintage</h3>
+                                    <div class="ecom-rating">⭐⭐⭐⭐⭐ <span>(128 valoraciones)</span></div>
+                                    <p class="ecom-desc" id="ecom-active-desc">Confección en cuero sintético de alta resistencia con acabados mate y forro térmico transpirable.</p>
+                                    
+                                    <div class="ecom-selectors">
+                                        <div class="selector-grp">
+                                            <label>Talla:</label>
+                                            <div class="size-chips">
+                                                <button class="size-chip">S</button>
+                                                <button class="size-chip active">M</button>
+                                                <button class="size-chip">L</button>
+                                                <button class="size-chip">XL</button>
+                                            </div>
+                                        </div>
+                                        <div class="selector-grp">
+                                            <label>Color:</label>
+                                            <div class="color-chips">
+                                                <span class="color-dot black active"></span>
+                                                <span class="color-dot brown"></span>
+                                                <span class="color-dot camel"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ecom-cta-row">
+                                        <button id="ecom-add-btn" class="btn btn-primary">
+                                            🛒 Agregar al Carrito (<span id="ecom-cur-price">$89.00</span>)
+                                        </button>
+                                    </div>
+
+                                    <div class="ecom-cart-toast" id="ecom-cart-toast">
+                                        <span>🎉 ¡Producto añadido! Carrito: (<span id="ecom-cart-count">1</span>)</span>
+                                        <button id="ecom-checkout-btn" class="btn btn-secondary btn-sm">Simular Pago</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================== -->
+                    <!-- DEMO 6: AGENCIA DE VIAJES (Python Clean Arch) -->
+                    <!-- ============================================== -->
+                    <div class="demo-screen" id="demo-screen-viajes">
+                        <div class="demo-meta-bar">
+                            <div class="demo-meta-left">
+                                <span class="meta-title">Agencia de Viajes • Clean Architecture en Python & SQLite</span>
+                                <span class="meta-tag">Repository Pattern</span>
+                                <span class="meta-tag">Conversor Multimoneda</span>
+                                <span class="meta-tag">Reservas & Préstamos</span>
+                            </div>
+                            <a href="https://github.com/santiagoosorio0708e-wq/empresa-viajes" target="_blank" class="meta-link">
+                                <span>Ver Código en GitHub</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="viajes-demo-layout">
+                            <!-- Left: Flight Search & Rates -->
+                            <div class="viajes-form-col">
+                                <h4>✈️ Módulo de Cotización y Reserva (CLI Service)</h4>
+                                
+                                <div class="viajes-input-grid">
+                                    <div class="viajes-grp">
+                                        <label>Origen</label>
+                                        <select id="viajes-origin" class="viajes-select">
+                                            <option value="BOG">BOG - Bogotá (El Dorado)</option>
+                                            <option value="MDE">MDE - Medellín (JMC)</option>
+                                            <option value="BGA">BGA - Bucaramanga (Palonegro)</option>
+                                        </select>
+                                    </div>
+                                    <div class="viajes-grp">
+                                        <label>Destino</label>
+                                        <select id="viajes-dest" class="viajes-select">
+                                            <option value="CDG">CDG - París, Francia</option>
+                                            <option value="MAD">MAD - Madrid, España</option>
+                                            <option value="JFK">JFK - Nueva York, EE. UU.</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="viajes-currency-switch">
+                                    <span class="curr-lbl">Moneda de Pago:</span>
+                                    <div class="currency-pills">
+                                        <button class="curr-pill active" data-curr="COP">COP ($)</button>
+                                        <button class="curr-pill" data-curr="USD">USD ($)</button>
+                                        <button class="curr-pill" data-curr="EUR">EUR (€)</button>
+                                    </div>
+                                </div>
+
+                                <div class="viajes-summary-box">
+                                    <div class="summary-line">
+                                        <span>Tarifa Base:</span>
+                                        <span id="viajes-base-price">$3,450,000 COP</span>
+                                    </div>
+                                    <div class="summary-line">
+                                        <span>Tasa de Cambio en Vivo:</span>
+                                        <span id="viajes-rate">1 USD = 4,207 COP</span>
+                                    </div>
+                                    <div class="summary-line total">
+                                        <span>Total Liquidado:</span>
+                                        <span id="viajes-total-price" class="text-green">$3,450,000 COP</span>
+                                    </div>
+                                </div>
+
+                                <button id="viajes-btn-book" class="btn btn-primary btn-block">
+                                    ✈️ Emitir Reserva (Persistir en SQLite)
+                                </button>
+                            </div>
+
+                            <!-- Right: Simulated Boarding Pass -->
+                            <div class="viajes-ticket-col">
+                                <div class="boarding-pass" id="boarding-pass">
+                                    <div class="bp-header">
+                                        <span class="bp-airline">CAMPUS WINGS • AIRLINES</span>
+                                        <span class="bp-class">CLASE EJECUTIVA</span>
+                                    </div>
+                                    <div class="bp-route">
+                                        <div class="bp-loc">
+                                            <span class="bp-code" id="bp-from">BOG</span>
+                                            <span class="bp-city">Bogotá</span>
+                                        </div>
+                                        <div class="bp-plane">✈️ ➔</div>
+                                        <div class="bp-loc">
+                                            <span class="bp-code" id="bp-to">CDG</span>
+                                            <span class="bp-city">París</span>
+                                        </div>
+                                    </div>
+                                    <div class="bp-meta-grid">
+                                        <div><span class="bp-lbl">PASAJERO:</span><span class="bp-val">DANIEL S. OSORIO</span></div>
+                                        <div><span class="bp-lbl">VUELO:</span><span class="bp-val">CW-804</span></div>
+                                        <div><span class="bp-lbl">ASIENTO:</span><span class="bp-val">12A (Ventana)</span></div>
+                                        <div><span class="bp-lbl">ESTADO:</span><span class="bp-val text-green" id="bp-status">CONFIRMADO</span></div>
+                                    </div>
+                                    <div class="bp-barcode">
+                                        <div class="barcode-bars"></div>
+                                        <span class="barcode-num">CODE: SQLITE-RES-2026-9812</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End studio-viewport -->
+            </div> <!-- End studio-wrapper -->
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PINNED PROJECTS REPOSITORIES GRID                                         -->
+        <!-- ========================================================================= -->
+        <section id="proyectos" class="section">
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="REPOSITORIOS ANCLADOS" data-en="PINNED REPOSITORIES">REPOSITORIOS ANCLADOS</span>
+                <h2 class="section-title i18n" data-es="Proyectos Principales de GitHub" data-en="Featured GitHub Projects">Proyectos Principales de GitHub</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Explora en detalle el código fuente, la arquitectura modular y las tecnologías detrás de mis 6 proyectos anclados." 
+                   data-en="Explore the source code, modular architecture, and technologies behind my 6 GitHub pinned projects.">
+                    Explora en detalle el código fuente, la arquitectura modular y las tecnologías detrás de mis 6 proyectos anclados.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- CARD 1: BANCO ACME -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">Web SPA • Vanilla JS</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">🏦</div>
+                        <h3 class="project-title">Banco ACME - Portal Transaccional</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Portal bancario interactivo desacoplado con arquitectura modular orientada a Web Components nativos. Incluye seguimiento de saldos, transferencias, cotizaciones en vivo y persistencia local sin frameworks pesados." 
+                           data-en="Interactive decoupled banking portal with modular architecture based on native Web Components. Includes balance tracking, transfers, real-time crypto rates, and local persistence without heavy frameworks.">
+                            Portal bancario interactivo desacoplado con arquitectura modular orientada a Web Components nativos. Incluye seguimiento de saldos, transferencias, cotizaciones en vivo y persistencia local sin frameworks pesados.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript ES6+</span>
+                            <span class="tag">Web Components</span>
+                            <span class="tag">HTML5/CSS3</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">LocalStorage</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="banco">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/Banco-ACME" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 2: DELIVERYBOT -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">Automatización • Bot Telegram</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">🤖</div>
+                        <h3 class="project-title">DeliveryBot Cafetería</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Plataforma de pedidos conversacionales en Telegram orquestada con n8n y Google Sheets como base de datos. Control de stock en tiempo real, teclados interactivos y ciclo de vida del pedido." 
+                           data-en="Conversational order management platform on Telegram orchestrated with n8n and Google Sheets database. Features real-time inventory validation, inline keyboards, and order dispatch lifecycle.">
+                            Plataforma de pedidos conversacionales en Telegram orquestada con n8n y Google Sheets como base de datos. Control de stock en tiempo real, teclados interactivos y ciclo de vida del pedido.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">n8n Workflows</span>
+                            <span class="tag">Telegram Bot API</span>
+                            <span class="tag">Google Sheets DB</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="delivery">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/delivery-bot" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 3: CHATBOT CONTADURIA -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">IA & Microservicio • WhatsApp</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">💬</div>
+                        <h3 class="project-title">Chatbot Contaduría (Gemini AI)</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Asistente de WhatsApp con Google Gemini AI y Baileys para asesoría contable y tributaria colombiana. Microservicio Dockerizado ultra ligero (~45MB RAM), control de horarios y handoff a asesor humano." 
+                           data-en="WhatsApp assistant with Google Gemini AI and Baileys for Colombian accounting and tax guidance. Ultra-lightweight Dockerized microservice (~45MB RAM), business schedule control, and human handoff.">
+                            Asistente de WhatsApp con Google Gemini AI y Baileys para asesoría contable y tributaria colombiana. Microservicio Dockerizado ultra ligero (~45MB RAM), control de horarios y handoff a asesor humano.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Google Gemini AI</span>
+                            <span class="tag">Baileys WS</span>
+                            <span class="tag">Docker Alpine</span>
+                            <span class="tag">Luxon</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="chatbot">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/chatbot-contaduria" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 4: FORMULA 1 JAVA -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">Concurrencia • Java Swing</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">🏎️</div>
+                        <h3 class="project-title">Fórmula 1 - Simulación Java</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Motor de simulación interactiva con sistema de concurrencia multihilo (un Thread por piloto), sincronización con CyclicBarrier, gestión de clima dinámico, desgaste de neumáticos y clasificación en vivo." 
+                           data-en="Interactive racing simulation engine with multithreaded concurrency (one Thread per driver), CyclicBarrier synchronization, dynamic weather engine, tire degradation, and live standings.">
+                            Motor de simulación interactiva con sistema de concurrencia multihilo (un Thread por piloto), sincronización con CyclicBarrier, gestión de clima dinámico, desgaste de neumáticos y clasificación en vivo.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java 21</span>
+                            <span class="tag">Java Swing</span>
+                            <span class="tag">Multithreading</span>
+                            <span class="tag">CyclicBarrier</span>
+                            <span class="tag">GitFlow</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="f1">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/Formula1-java" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 5: E-COMMERCE -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">Frontend • SPA Mobile First</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">🛍️</div>
+                        <h3 class="project-title">E-Commerce de Moda</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Maqueta y flujo interactivo de tienda online. Reutilización dinámica de vista de detalle mediante URL query params, catálogo filtrable, selectores de talla/color y simulación completa de checkout." 
+                           data-en="Interactive fashion store workflow. Dynamic reusable product detail view driven by URL query params, filterable catalog, size/color variant selectors, and full checkout simulation.">
+                            Maqueta y flujo interactivo de tienda online. Reutilización dinámica de vista de detalle mediante URL query params, catálogo filtrable, selectores de talla/color y simulación completa de checkout.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3 Variables</span>
+                            <span class="tag">JavaScript Vanilla</span>
+                            <span class="tag">Responsive UI</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="ecommerce">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/E-commerce" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 6: EMPRESA VIAJES -->
+                <article class="project-card glass">
+                    <div class="project-card-header">
+                        <div class="project-badge-type">Clean Architecture • Python</div>
+                        <div class="project-stars">⭐ <span>GitHub Pinned</span></div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-icon-box">✈️</div>
+                        <h3 class="project-title">Agencia de Viajes - Agile Edition</h3>
+                        <p class="project-desc i18n" 
+                           data-es="Sistema de gestión por consola para agencias de viaje diseñado bajo Clean Architecture y patrón Repository. Persistencia en SQLite, motor de reservas, emisión de pasajes y conversor multimoneda." 
+                           data-en="Console management system for travel agencies designed under Clean Architecture and Repository Pattern. SQLite persistence, booking engine, ticket emission, and multi-currency converter.">
+                            Sistema de gestión por consola para agencias de viaje diseñado bajo Clean Architecture y patrón Repository. Persistencia en SQLite, motor de reservas, emisión de pasajes y conversor multimoneda.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python 3.10+</span>
+                            <span class="tag">Clean Architecture</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Repository Pattern</span>
+                            <span class="tag">Dataclasses</span>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <button class="btn btn-primary btn-sm switch-to-demo" data-target="viajes">
+                            <span>⚡ Probar Demo</span>
+                        </button>
+                        <a href="https://github.com/santiagoosorio0708e-wq/empresa-viajes" target="_blank" class="btn btn-secondary btn-sm">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- INTERACTIVE DEVELOPER TERMINAL                                            -->
+        <!-- ========================================================================= -->
+        <section id="terminal" class="section">
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="CONSOLA INTERACTIVA" data-en="INTERACTIVE CONSOLE">CONSOLA INTERACTIVA</span>
+                <h2 class="section-title i18n" data-es="Terminal de Desarrollador" data-en="Developer Terminal">Terminal de Desarrollador</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Escribe comandos en tiempo real o pulsa las sugerencias para explorar mi trayectoria, stacks y repositorios." 
+                   data-en="Type commands in real time or click prompt chips to explore my background, tech stack, and repositories.">
+                    Escribe comandos en tiempo real o pulsa las sugerencias para explorar mi trayectoria, stacks y repositorios.
+                </p>
+            </div>
+
+            <div class="terminal-container glass">
+                <div class="terminal-bar">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">daniel@campuslands: ~/portfolio (zsh)</span>
+                    <span class="terminal-badge">LIVE CLI</span>
                 </div>
-                <div class="card">
-                    <h3 class="i18n" data-es="DeliveryBot - Proyecto Independiente" data-en="DeliveryBot - Independent Project">DeliveryBot - Proyecto Independiente</h3>
-                    <p class="i18n" data-es="Bot interactivo de Telegram utilizando n8n y JavaScript para la gestión automatizada de pedidos. Integración con Google Sheets para inventarios y carritos de compra, con IA para procesamiento de lenguaje natural." data-en="Interactive Telegram bot using n8n and JavaScript for automated order management. Integration with Google Sheets for inventory and shopping carts, with AI for natural language processing.">Bot interactivo de Telegram utilizando n8n y JavaScript para la gestión automatizada de pedidos. Integración con Google Sheets para inventarios y carritos de compra, con IA para procesamiento de lenguaje natural.</p>
+
+                <div class="terminal-screen" id="terminal-screen">
+                    <div class="terminal-output-line">
+                        <span class="text-cyan">Daniel Santiago Osorio Garces</span> — Terminal Interactivo v2.6.0
+                    </div>
+                    <div class="terminal-output-line text-muted">
+                        Escribe <span class="text-green">'help'</span> para listar los comandos disponibles o usa los atajos inferiores.
+                    </div>
+                    <div class="terminal-output-line">--------------------------------------------------</div>
+                </div>
+
+                <!-- Terminal Quick Command Chips -->
+                <div class="terminal-chips">
+                    <span class="chip-label i18n" data-es="Comandos rápidos:" data-en="Quick commands:">Comandos rápidos:</span>
+                    <button class="term-chip" data-cmd="help">help</button>
+                    <button class="term-chip" data-cmd="about">about</button>
+                    <button class="term-chip" data-cmd="projects">projects</button>
+                    <button class="term-chip" data-cmd="skills">skills</button>
+                    <button class="term-chip" data-cmd="contact">contact</button>
+                    <button class="term-chip" data-cmd="clear">clear</button>
+                </div>
+
+                <div class="terminal-input-row">
+                    <span class="terminal-prompt">daniel@dev:~$</span>
+                    <input type="text" id="terminal-input" class="terminal-input" placeholder="Escribe un comando..." autocomplete="off" spellcheck="false">
                 </div>
             </div>
         </section>
 
+        <!-- SKILLS SECTION -->
         <section id="habilidades" class="section">
-            <h2 class="section-title i18n" data-es="Habilidades y Competencias" data-en="Skills and Competencies">Habilidades y Competencias</h2>
-            <div class="skills-container">
-                <div class="skills-group glass">
-                    <h3 class="i18n" data-es="Técnicas" data-en="Technical">Técnicas</h3>
-                    <ul class="skills-list">
-                        <li class="i18n" data-es="Dominio en páginas web" data-en="Web Development">Dominio en páginas web</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li class="i18n" data-es="Programación Básica" data-en="Basic Programming">Programación Básica</li>
-                        <li class="i18n" data-es="Manejo de la IA" data-en="AI Management">Manejo de la IA</li>
-                        <li>n8n</li>
-                        <li>SQL</li>
-                        <li>PostgreSQL</li>
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="TECNOLOGÍAS & HERRAMIENTAS" data-en="TECHNOLOGIES & TOOLS">TECNOLOGÍAS & HERRAMIENTAS</span>
+                <h2 class="section-title i18n" data-es="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Conjunto de lenguajes, frameworks, herramientas cloud y competencias profesionales que domino." 
+                   data-en="Set of languages, frameworks, cloud tools, and core competencies I work with daily.">
+                    Conjunto de lenguajes, frameworks, herramientas cloud y competencias profesionales que domino.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                
+                <!-- Backend & Lenguajes -->
+                <div class="skills-card glass">
+                    <div class="skills-card-header">
+                        <span class="sc-icon">☕</span>
+                        <h3 class="i18n" data-es="Backend & Lenguajes" data-en="Backend & Languages">Backend & Lenguajes</h3>
+                    </div>
+                    <ul class="skills-tags-list">
+                        <li><span class="sk-name">Java 21</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Spring Boot</span><span class="sk-lvl">Intermedio</span></li>
+                        <li><span class="sk-name">Node.js</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Python 3.10+</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">JavaScript ES6+</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">APIs RESTful</span><span class="sk-lvl">Avanzado</span></li>
                     </ul>
                 </div>
-                <div class="skills-group glass">
-                    <h3 class="i18n" data-es="Blandas" data-en="Soft">Blandas</h3>
-                    <ul class="skills-list">
-                        <li class="i18n" data-es="Liderazgo" data-en="Leadership">Liderazgo</li>
-                        <li class="i18n" data-es="Creatividad" data-en="Creativity">Creatividad</li>
-                        <li class="i18n" data-es="Disciplina" data-en="Discipline">Disciplina</li>
-                        <li class="i18n" data-es="Escucha activa" data-en="Active Listening">Escucha activa</li>
-                        <li class="i18n" data-es="Proactividad" data-en="Proactivity">Proactividad</li>
-                        <li class="i18n" data-es="Comunicación" data-en="Communication">Comunicación</li>
+
+                <!-- Contenerización & Cloud -->
+                <div class="skills-card glass">
+                    <div class="skills-card-header">
+                        <span class="sc-icon">🐳</span>
+                        <h3 class="i18n" data-es="Contenerización & Cloud" data-en="Containerization & Cloud">Contenerización & Cloud</h3>
+                    </div>
+                    <ul class="skills-tags-list">
+                        <li><span class="sk-name">Docker</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Docker Compose</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Render</span><span class="sk-lvl">Despliegue</span></li>
+                        <li><span class="sk-name">Netlify</span><span class="sk-lvl">Producción</span></li>
+                        <li><span class="sk-name">Git & GitFlow</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Linux / Bash</span><span class="sk-lvl">Intermedio</span></li>
                     </ul>
                 </div>
+
+                <!-- Inteligencia Artificial & Automatización -->
+                <div class="skills-card glass">
+                    <div class="skills-card-header">
+                        <span class="sc-icon">🤖</span>
+                        <h3 class="i18n" data-es="IA & Automatización" data-en="AI & Automation">IA & Automatización</h3>
+                    </div>
+                    <ul class="skills-tags-list">
+                        <li><span class="sk-name">Google Gemini AI</span><span class="sk-lvl">Integración</span></li>
+                        <li><span class="sk-name">n8n Workflows</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Baileys (WhatsApp)</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Telegram Bot API</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">OpenAI API</span><span class="sk-lvl">Integración</span></li>
+                        <li><span class="sk-name">Procesamiento NLP</span><span class="sk-lvl">Intermedio</span></li>
+                    </ul>
+                </div>
+
+                <!-- Bases de Datos & Testing -->
+                <div class="skills-card glass">
+                    <div class="skills-card-header">
+                        <span class="sc-icon">🗄️</span>
+                        <h3 class="i18n" data-es="Bases de Datos & Calidad" data-en="Databases & Quality">Bases de Datos & Calidad</h3>
+                    </div>
+                    <ul class="skills-tags-list">
+                        <li><span class="sk-name">PostgreSQL</span><span class="sk-lvl">Relacional</span></li>
+                        <li><span class="sk-name">MySQL</span><span class="sk-lvl">Relacional</span></li>
+                        <li><span class="sk-name">SQLite</span><span class="sk-lvl">Integrado</span></li>
+                        <li><span class="sk-name">Postman API Testing</span><span class="sk-lvl">Avanzado</span></li>
+                        <li><span class="sk-name">Pruebas Unitarias</span><span class="sk-lvl">Intermedio</span></li>
+                        <li><span class="sk-name">Scrum / Agile</span><span class="sk-lvl">Metodología</span></li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
+        <!-- FORMACION SECTION -->
         <section id="formacion" class="section">
-            <h2 class="section-title i18n" data-es="Formación" data-en="Education">Formación</h2>
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="TRAYECTORIA EDUCATIVA" data-en="ACADEMIC BACKGROUND">TRAYECTORIA EDUCATIVA</span>
+                <h2 class="section-title i18n" data-es="Formación Académica" data-en="Education">Formación Académica</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="Educación formal técnica e intensiva orientada a estándares profesionales de la industria." 
+                   data-en="Formal and intensive technical education focused on modern industry standards.">
+                    Educación formal técnica e intensiva orientada a estándares profesionales de la industria.
+                </p>
+            </div>
+
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass">
+                        <div class="timeline-badge-year">2026</div>
                         <h3 class="i18n" data-es="Técnico Laboral en Desarrollo de Software" data-en="Software Development Technician">Técnico Laboral en Desarrollo de Software</h3>
-                        <h4>Campuslands</h4>
-                        <p class="timeline-date">2026</p>
+                        <h4 class="timeline-institution">Campuslands</h4>
+                        <p class="timeline-desc i18n" 
+                           data-es="Formación intensiva de inmersión práctica en desarrollo backend con Java y Spring Boot, microservicios en Node.js, contenerización con Docker, flujos de automatización en n8n e Inteligencia Artificial bajo marco ágil Scrum." 
+                           data-en="Intensive hands-on immersion program covering backend engineering with Java and Spring Boot, Node.js microservices, Docker containerization, n8n workflow automation, and Artificial Intelligence under the Scrum agile framework.">
+                            Formación intensiva de inmersión práctica en desarrollo backend con Java y Spring Boot, microservicios en Node.js, contenerización con Docker, flujos de automatización en n8n e Inteligencia Artificial bajo marco ágil Scrum.
+                        </p>
                     </div>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="i18n" data-es="Bachiller" data-en="High School Diploma">Bachiller</h3>
-                        <h4 class="i18n" data-es="Colegio Fundación Colegio UIS" data-en="Fundación Colegio UIS School">Colegio Fundación Colegio UIS</h4>
-                        <p class="timeline-date">2025</p>
+                    <div class="timeline-content glass">
+                        <div class="timeline-badge-year">2025</div>
+                        <h3 class="i18n" data-es="Bachiller Académico" data-en="High School Diploma">Bachiller Académico</h3>
+                        <h4 class="timeline-institution">Colegio Fundación Colegio UIS</h4>
+                        <p class="timeline-desc i18n" 
+                           data-es="Formación orientada al rigor analítico, pensamiento lógico, ciencias exactas y fundamentos de tecnologías de la información." 
+                           data-en="Education oriented towards analytical rigor, logical thinking, exact sciences, and fundamentals of computer science and IT.">
+                            Formación orientada al rigor analítico, pensamiento lógico, ciencias exactas y fundamentos de tecnologías de la información.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CONTACT SECTION -->
         <section id="contacto" class="section">
-            <h2 class="section-title i18n" data-es="Contacto" data-en="Contact">Contacto</h2>
-            <div class="contact-container glass">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Email</h3>
-                        <a href="mailto:santiagoosorio0708e@gmail.com" class="contact-link">santiagoosorio0708e@gmail.com</a>
+            <div class="section-header">
+                <span class="section-tag i18n" data-es="CONECTEMOS" data-en="LET'S CONNECT">CONECTEMOS</span>
+                <h2 class="section-title i18n" data-es="Contacto Profesional" data-en="Contact Me">Contacto Profesional</h2>
+                <p class="section-subtitle i18n" 
+                   data-es="¿Tienes un proyecto, vacante de desarrollo backend o idea innovadora? Hablemos." 
+                   data-en="Have a project, backend development vacancy, or innovative idea? Let's connect.">
+                    ¿Tienes un proyecto, vacante de desarrollo backend o idea innovadora? Hablemos.
+                </p>
+            </div>
+
+            <div class="contact-card-main glass">
+                <div class="contact-methods-grid">
+                    
+                    <!-- EMAIL -->
+                    <div class="contact-method-box">
+                        <div class="cm-icon">✉️</div>
+                        <h4>Correo Electrónico</h4>
+                        <a href="mailto:santiagoosorio0708e@gmail.com" class="cm-link">santiagoosorio0708e@gmail.com</a>
+                        <button class="btn btn-outline btn-sm copy-btn" data-copy="santiagoosorio0708e@gmail.com">
+                            <span class="i18n" data-es="Copiar Email" data-en="Copy Email">Copiar Email</span>
+                        </button>
                     </div>
-                    <div class="contact-item">
-                        <h3 class="i18n" data-es="Teléfono" data-en="Phone">Teléfono</h3>
-                        <a href="tel:+573014609110" class="contact-link">+57 301 460 9110</a>
+
+                    <!-- WHATSAPP -->
+                    <div class="contact-method-box">
+                        <div class="cm-icon">📱</div>
+                        <h4>WhatsApp Directo</h4>
+                        <a href="https://wa.me/573014609110" target="_blank" rel="noopener noreferrer" class="cm-link">+57 301 460 9110</a>
+                        <a href="https://wa.me/573014609110" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                            <span class="i18n" data-es="Abrir Chat" data-en="Open Chat">Abrir Chat</span>
+                        </a>
                     </div>
+
+                    <!-- GITHUB -->
+                    <div class="contact-method-box">
+                        <div class="cm-icon">🐙</div>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="cm-link">@santiagoosorio0708e-wq</a>
+                        <a href="https://github.com/santiagoosorio0708e-wq" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                            <span class="i18n" data-es="Ver Perfil" data-en="View Profile">Ver Perfil</span>
+                        </a>
+                    </div>
+
                 </div>
-                <div class="contact-actions">
-                    <a href="mailto:santiagoosorio0708e@gmail.com" class="btn btn-primary i18n" data-es="Enviar Correo" data-en="Send Email">Enviar Correo</a>
-                    <a href="https://wa.me/573014609110" target="_blank" class="btn btn-secondary">WhatsApp</a>
+
+                <div class="contact-cta-footer">
+                    <p class="i18n" 
+                       data-es="Ubicación: <strong>Bucaramanga, Santander, Colombia</strong> • Disponible para trabajo remoto e híbrido." 
+                       data-en="Location: <strong>Bucaramanga, Santander, Colombia</strong> • Available for remote and hybrid roles.">
+                        Ubicación: <strong>Bucaramanga, Santander, Colombia</strong> • Disponible para trabajo remoto e híbrido.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <p class="i18n" data-es="&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados." data-en="&copy; 2026 Daniel Santiago Osorio Garces. All rights reserved.">&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados.</p>
-        <div class="languages i18n" data-es="Idiomas: Español (Nativo), Inglés (B1.1)" data-en="Languages: Spanish (Native), English (B1.1)">Idiomas: Español (Nativo), Inglés (B1.1)</div>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-name">Daniel Santiago Osorio Garces</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            
+            <p class="footer-copy i18n" 
+               data-es="&copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones interactivas." 
+               data-en="&copy; 2026 Daniel Santiago Osorio Garces. All rights reserved. Built with native modular architecture and interactive simulations.">
+                &copy; 2026 Daniel Santiago Osorio Garces. Todos los derechos reservados. Diseñado con arquitectura modular nativa y animaciones interactivas.
+            </p>
+
+            <div class="footer-links">
+                <span class="i18n" data-es="Idiomas: Español (Nativo), Inglés (B1.1)" data-en="Languages: Spanish (Native), English (B1.1)">Idiomas: Español (Nativo), Inglés (B1.1)</span>
+                <span class="sep">•</span>
+                <a href="#inicio" class="back-to-top i18n" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a>
+            </div>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
